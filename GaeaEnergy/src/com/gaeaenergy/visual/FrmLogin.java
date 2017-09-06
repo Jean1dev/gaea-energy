@@ -5,9 +5,11 @@
  */
 package com.gaeaenergy.visual;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author JEAN - MURILO        01/09/2017
+ * @author JEAN - MURILO 01/09/2017
  */
 public class FrmLogin extends javax.swing.JFrame {
 
@@ -16,7 +18,11 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
+        this.setTitle("Login");
         this.setLocationRelativeTo(null);
+        JOptionPane.showMessageDialog(this, "*****ATENÇÃO*******\n"
+                + "ESSA TELA DE LOGIN E A TELA DE CADASTRO INICIAL AINDA NAO\n"
+                + "ESTAO PRONTAS, PARA ABRIR O SISTEMA BASTA CLICAR EM LOGIN");
     }
 
     /**
@@ -133,7 +139,7 @@ public class FrmLogin extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
