@@ -43,25 +43,25 @@ public class DesktopPane extends javax.swing.JFrame {
         btn_fatura = new javax.swing.JButton();
         btn_grafico = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_perfil = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        menu_visualizarFatura = new javax.swing.JMenuItem();
+        menu_salvarFatura = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menu_grafico = new javax.swing.JMenuItem();
+        menu_graficoAnual = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        menu_perfil = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        menu_cadastro_cartao = new javax.swing.JMenuItem();
+        menu_cadastro_banco = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
@@ -91,7 +91,12 @@ public class DesktopPane extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/payment.png"))); // NOI18N
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/profile.png"))); // NOI18N
+        btn_perfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/profile.png"))); // NOI18N
+        btn_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_perfilActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/suport.png"))); // NOI18N
 
@@ -113,7 +118,7 @@ public class DesktopPane extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -127,7 +132,7 @@ public class DesktopPane extends javax.swing.JFrame {
                     .addComponent(btn_fatura, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_grafico, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 568, Short.MAX_VALUE))
@@ -137,31 +142,41 @@ public class DesktopPane extends javax.swing.JFrame {
 
         jMenu1.setText("Fatura");
 
-        jMenuItem6.setText("Visualizar fatura");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        menu_visualizarFatura.setText("Visualizar fatura");
+        menu_visualizarFatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                menu_visualizarFaturaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenu1.add(menu_visualizarFatura);
 
-        jMenuItem7.setText("Salvar fatura");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        menu_salvarFatura.setText("Salvar fatura");
+        menu_salvarFatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                menu_salvarFaturaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem7);
+        jMenu1.add(menu_salvarFatura);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Analise de gastos");
 
-        jMenuItem2.setText("Grafico mensal");
-        jMenu2.add(jMenuItem2);
+        menu_grafico.setText("Grafico mensal");
+        menu_grafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_graficoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menu_grafico);
 
-        jMenuItem3.setText("Grafico anual");
-        jMenu2.add(jMenuItem3);
+        menu_graficoAnual.setText("Grafico anual");
+        menu_graficoAnual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_graficoAnualActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menu_graficoAnual);
 
         jMenuBar1.add(jMenu2);
 
@@ -180,18 +195,33 @@ public class DesktopPane extends javax.swing.JFrame {
         jMenuItem8.setText("Visualizar perfil");
         jMenu8.add(jMenuItem8);
 
-        jMenuItem9.setText("Editar Perfil");
-        jMenu8.add(jMenuItem9);
+        menu_perfil.setText("Editar Perfil");
+        menu_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_perfilActionPerformed(evt);
+            }
+        });
+        jMenu8.add(menu_perfil);
 
         jMenuBar1.add(jMenu8);
 
         jMenu9.setText("Cadastros");
 
-        jMenuItem11.setText("Cadastrar cartao de credito");
-        jMenu9.add(jMenuItem11);
+        menu_cadastro_cartao.setText("Cadastrar cartao de credito");
+        menu_cadastro_cartao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_cadastro_cartaoActionPerformed(evt);
+            }
+        });
+        jMenu9.add(menu_cadastro_cartao);
 
-        jMenuItem10.setText("Cadastrar conta bancaria");
-        jMenu9.add(jMenuItem10);
+        menu_cadastro_banco.setText("Cadastrar conta bancaria");
+        menu_cadastro_banco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_cadastro_bancoActionPerformed(evt);
+            }
+        });
+        jMenu9.add(menu_cadastro_banco);
 
         jMenuBar1.add(jMenu9);
 
@@ -214,9 +244,11 @@ public class DesktopPane extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    private void menu_salvarFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_salvarFaturaActionPerformed
+        FrmAdicionarFatura fl = new FrmAdicionarFatura();
+        painel.add(fl);
+        fl.setVisible(true);
+    }//GEN-LAST:event_menu_salvarFaturaActionPerformed
 
     private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
 
@@ -233,12 +265,12 @@ public class DesktopPane extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu12ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void menu_visualizarFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_visualizarFaturaActionPerformed
 
         FrmFatura f1 = new FrmFatura();
         painel.add(f1);
         f1.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_menu_visualizarFaturaActionPerformed
 
     private void btn_faturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_faturaActionPerformed
         FrmFatura f1 = new FrmFatura();
@@ -255,6 +287,41 @@ public class DesktopPane extends javax.swing.JFrame {
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_btn_graficoActionPerformed
+
+    private void menu_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_graficoActionPerformed
+        FrmGrafico fl = new FrmGrafico();
+        painel.add(fl);
+        fl.setVisible(true);
+    }//GEN-LAST:event_menu_graficoActionPerformed
+
+    private void menu_graficoAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_graficoAnualActionPerformed
+        JOptionPane.showMessageDialog(jMenu1, "AINDA NÃO IMPLEMENTADO");
+    }//GEN-LAST:event_menu_graficoAnualActionPerformed
+
+    private void btn_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_perfilActionPerformed
+        FrmPerfil fl = new FrmPerfil();
+        painel.add(fl);
+        fl.setVisible(true);
+    }//GEN-LAST:event_btn_perfilActionPerformed
+
+    private void menu_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_perfilActionPerformed
+        FrmPerfil fl = new FrmPerfil();
+        painel.add(fl);
+        fl.setVisible(true);
+    }//GEN-LAST:event_menu_perfilActionPerformed
+
+    private void menu_cadastro_cartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_cartaoActionPerformed
+        FrmCadastroCartaoCredito fl = new FrmCadastroCartaoCredito();
+        painel.add(fl);
+        fl.setVisible(true);
+    }//GEN-LAST:event_menu_cadastro_cartaoActionPerformed
+
+    private void menu_cadastro_bancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_bancoActionPerformed
+        FrmCadastroContaBancaria fl = new FrmCadastroContaBancaria();
+        painel.add(fl);
+        fl.setVisible(true);
+
+    }//GEN-LAST:event_menu_cadastro_bancoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,8 +361,8 @@ public class DesktopPane extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_fatura;
     private javax.swing.JButton btn_grafico;
+    private javax.swing.JButton btn_perfil;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JMenu jMenu1;
@@ -309,16 +376,16 @@ public class DesktopPane extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem menu_cadastro_banco;
+    private javax.swing.JMenuItem menu_cadastro_cartao;
+    private javax.swing.JMenuItem menu_grafico;
+    private javax.swing.JMenuItem menu_graficoAnual;
+    private javax.swing.JMenuItem menu_perfil;
+    private javax.swing.JMenuItem menu_salvarFatura;
+    private javax.swing.JMenuItem menu_visualizarFatura;
     private javax.swing.JPanel painel;
     // End of variables declaration//GEN-END:variables
 }

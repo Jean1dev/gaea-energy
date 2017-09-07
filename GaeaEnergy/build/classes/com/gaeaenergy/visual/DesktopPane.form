@@ -23,20 +23,20 @@
             <Property name="text" type="java.lang.String" value="Fatura"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_visualizarFatura">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Visualizar fatura"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_visualizarFaturaActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_salvarFatura">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar fatura"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_salvarFaturaActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -46,15 +46,21 @@
             <Property name="text" type="java.lang.String" value="Analise de gastos"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_grafico">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Grafico mensal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_graficoActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_graficoAnual">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Grafico anual"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_graficoAnualActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -85,10 +91,13 @@
                 <Property name="text" type="java.lang.String" value="Visualizar perfil"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_perfil">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Editar Perfil"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_perfilActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -97,15 +106,21 @@
             <Property name="text" type="java.lang.String" value="Cadastros"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_cartao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar cartao de credito"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_cartaoActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="menu_cadastro_banco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar conta bancaria"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_cadastro_bancoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -168,7 +183,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton3" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton4" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btn_perfil" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton5" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -184,7 +199,7 @@
                       <Component id="btn_fatura" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="btn_grafico" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="btn_perfil" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jButton5" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="jButton7" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
@@ -221,12 +236,15 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="btn_perfil">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/com/gaeenergy/images/profile.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_perfilActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>

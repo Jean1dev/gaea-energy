@@ -38,6 +38,7 @@ public class FrmGrafico extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_sair = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jPanel1.setLayout(null);
 
@@ -52,16 +53,25 @@ public class FrmGrafico extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(btn_sair);
-        btn_sair.setBounds(250, 230, 85, 73);
+        btn_sair.setBounds(160, 230, 85, 73);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/search.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(340, 230, 85, 73);
+        jButton1.setBounds(340, 230, 85, 70);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(250, 230, 85, 73);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,9 +99,14 @@ public class FrmGrafico extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_sair;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
