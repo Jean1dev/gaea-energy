@@ -13,10 +13,4 @@ import java.awt.event.ActionListener;
  *
  * @author Jean
  */
-public class EvtButton extends DesktopPane implements ActionListener {
-
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-
-    }
-}
+//public class EvtButton extends DesktopPane implements ActionListener {}
