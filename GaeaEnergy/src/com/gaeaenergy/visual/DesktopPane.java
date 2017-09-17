@@ -54,7 +54,7 @@ public class DesktopPane extends javax.swing.JFrame {
         btn_pagamento = new javax.swing.JButton();
         btn_perfil = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menu_visualizarFatura = new javax.swing.JMenuItem();
@@ -114,10 +114,10 @@ public class DesktopPane extends javax.swing.JFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/suport.png"))); // NOI18N
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/quit.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/quit.png"))); // NOI18N
+        btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btn_sairActionPerformed(evt);
             }
         });
 
@@ -136,7 +136,7 @@ public class DesktopPane extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 256, Short.MAX_VALUE))
         );
         painelLayout.setVerticalGroup(
@@ -148,7 +148,7 @@ public class DesktopPane extends javax.swing.JFrame {
                     .addComponent(btn_pagamento, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 568, Short.MAX_VALUE))
         );
 
@@ -302,9 +302,9 @@ public class DesktopPane extends javax.swing.JFrame {
         f1.setVisible(true);
     }//GEN-LAST:event_btn_faturaActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
+        // System.exit(0);
+    }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficoActionPerformed
         FrmGrafico fl = new FrmGrafico();
@@ -404,8 +404,8 @@ public class DesktopPane extends javax.swing.JFrame {
     private javax.swing.JButton btn_grafico;
     private javax.swing.JButton btn_pagamento;
     private javax.swing.JButton btn_perfil;
+    private javax.swing.JButton btn_sair;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
