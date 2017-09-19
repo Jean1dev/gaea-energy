@@ -10,11 +10,22 @@ package com.gaeaenergy.model;
  * @author JEAN - MURILO 01/09/2017
  */
 public class ModelUsuario {
-    
+
     private String nome;
     private String sobrenome;
     private String email;
     private String senha;
+
+    public void print() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------INICIO DO OBJETO---------------");
+        System.out.println(nome);
+        System.out.println(sobrenome);
+        System.out.println(email);
+        System.out.println(senha);
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------FIM DO OBJETO------------------");
+    }
 
     public ModelUsuario() {
     }
@@ -57,6 +68,5 @@ public class ModelUsuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    
+
 }

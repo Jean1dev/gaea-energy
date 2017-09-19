@@ -10,12 +10,24 @@ package com.gaeaenergy.model;
  * @author JEAN - MURILO 01/09/2017
  */
 public class ModelCadastroCartaoCredito {
-    
+
     private String numCartao;
     private String nomeTitular;
     private String bandeira;
     private String codSeguranca;
     private String validade;
+
+    public void print() {
+        System.out.println("------------------------------------------------");
+        System.out.println("----------------INICIO DO OBJETO-----------------");
+        System.out.println(numCartao);
+        System.out.println(nomeTitular);
+        System.out.println(bandeira);
+        System.out.println(codSeguranca);
+        System.out.println(validade);
+        System.out.println("------------------------------------------------");
+        System.out.println("-----------FIM DO OBJETO------------------------");
+    }
 
     public String getNumCartao() {
         return numCartao;
@@ -67,5 +79,5 @@ public class ModelCadastroCartaoCredito {
 
     public ModelCadastroCartaoCredito() {
     }
-    
+
 }

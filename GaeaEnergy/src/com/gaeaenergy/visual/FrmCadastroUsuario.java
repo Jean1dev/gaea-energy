@@ -5,6 +5,8 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.model.ModelUsuario;
+
 /**
  *
  * @author JEAN - MURILO 01/09/2017
@@ -82,6 +84,11 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         });
 
         btnCadastro.setText("Cadastrar");
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
 
         rdnMasc.setText("Masculino");
         rdnMasc.addActionListener(new java.awt.event.ActionListener() {
@@ -218,6 +225,14 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         FrmLogin login = new FrmLogin();
         login.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        ModelUsuario user = new ModelUsuario();
+        user.setNome(txtNome.getText());
+        user.setEmail(txtEmail.getText());
+        user.setSenha(txtSenha.getText());
+        user.print();
+    }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**
      * @param args the command line arguments
