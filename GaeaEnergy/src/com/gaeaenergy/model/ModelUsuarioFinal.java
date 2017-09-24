@@ -46,6 +46,56 @@ public class ModelUsuarioFinal {
     private String IE; //INSCRIÇÃO ESTADUAL
     private int tipo;  //1 - SIMPLES NACIAL 2 - NÃO CONTRIBUINTE 3 - ISENTO
 
+    public void print() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------INICIO DO OBJETO---------------");
+        System.out.println(cpf);
+        System.out.println(cnpj);
+        System.out.println(nome);
+        System.out.println(endereco);
+        System.out.println(complemento);
+        System.out.println(referencia);
+        System.out.println(cep);
+        System.out.println(bairro);
+        System.out.println(estado);
+        System.out.println(fone);
+        System.out.println(fone2);
+        System.out.println(email);
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------FIM DO OBJETO------------------");
+    }
+
+    public ModelUsuarioFinal(boolean tipoPessoa, String cpf, String cnpj, String nome, String endereco, int numero, String complemento, String referencia, String cep, String bairro, int cidade, String estado, int pais, String fone, String fone2, String campo, String campo2, String email, String obs, String lembrete, String conjuge, String nome_pai, String nome_mae, int orgao_expedidor, String nome_fantasia, String razao_social, String IE, int tipo) {
+        this.tipoPessoa = tipoPessoa;
+        this.cpf = cpf;
+        this.cnpj = cnpj;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.referencia = referencia;
+        this.cep = cep;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.pais = pais;
+        this.fone = fone;
+        this.fone2 = fone2;
+        this.campo = campo;
+        this.campo2 = campo2;
+        this.email = email;
+        this.obs = obs;
+        this.lembrete = lembrete;
+        this.conjuge = conjuge;
+        this.nome_pai = nome_pai;
+        this.nome_mae = nome_mae;
+        this.orgao_expedidor = orgao_expedidor;
+        this.nome_fantasia = nome_fantasia;
+        this.razao_social = razao_social;
+        this.IE = IE;
+        this.tipo = tipo;
+    }
+
     public ModelUsuarioFinal() {
     }
 

@@ -5,14 +5,19 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtCadastroUsuario;
 import com.gaeaenergy.model.ModelUsuario;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
  * @author JEAN - MURILO 01/09/2017
  */
 public class FrmCadastroUsuario extends javax.swing.JFrame {
-
+    
+    //ENVIA UM NOVO 
+    private EvtCadastroUsuario l = new EvtCadastroUsuario(this);
     /**
      * Creates new form FrmCadastroUsuario
      */
@@ -21,6 +26,7 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         this.setTitle("Cadastro de Usuario");
         this.setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -83,12 +89,16 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnCadastro.setActionCommand("Gravar");
         btnCadastro.setText("Cadastrar");
+        /*
         btnCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastroActionPerformed(evt);
             }
         });
+        */
+        btnCadastro.addActionListener(l);
 
         rdnMasc.setText("Masculino");
         rdnMasc.addActionListener(new java.awt.event.ActionListener() {
@@ -287,4 +297,25 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtSenhaConfirma;
     private javax.swing.JTextField txtSobrenome;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public JPasswordField getTxtSenha() {
+        return txtSenha;
+    }
+
+    public JPasswordField getTxtSenhaConfirma() {
+        return txtSenhaConfirma;
+    }
+
+    public JTextField getTxtSobrenome() {
+        return txtSobrenome;
+    }
+
 }

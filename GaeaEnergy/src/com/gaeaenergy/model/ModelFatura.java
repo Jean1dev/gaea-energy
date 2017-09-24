@@ -10,13 +10,13 @@ package com.gaeaenergy.model;
  * @author JEAN - MURILO 01/09/2017
  */
 public class ModelFatura {
-    
+
     private String titulo;
     private String mes;
     private String unidadeConsumidora;
-    
+
     private static final float precoKW = (float) 0.42; // CONSTANTE
-    
+
     private float subtotal;
     private float total;
     private float desconto;
@@ -25,7 +25,7 @@ public class ModelFatura {
     private float horas_gasta;
     private float multa;
 
-    public ModelFatura(String titulo, String mes, String unidadeConsumidora, float subtotal, float total, float desconto, float taxa_imposto, float consumo, float horas_gasta, float multa) {
+    public ModelFatura(String titulo, String mes, String unidadeConsumidora, float subtotal, float total, float desconto, float taxa_imposto, float consumo, float horas_gasta) {
         this.titulo = titulo;
         this.mes = mes;
         this.unidadeConsumidora = unidadeConsumidora;
@@ -35,7 +35,23 @@ public class ModelFatura {
         this.taxa_imposto = taxa_imposto;
         this.consumo = consumo;
         this.horas_gasta = horas_gasta;
-        this.multa = multa;
+        //this.multa = multa;
+    }
+
+    public void print() {
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------INICIO DO OBJETO---------------");
+        System.out.println(titulo);
+        System.out.println(mes);
+        System.out.println(unidadeConsumidora);
+        System.out.println(subtotal);
+        System.out.println(total);
+        System.out.println(desconto);
+        System.out.println(taxa_imposto);
+        System.out.println(consumo);
+        System.out.println(horas_gasta);
+        System.out.println("-------------------------------------------------");
+        System.out.println("------------------FIM DO OBJETO------------------");
     }
 
     public String getTitulo() {
@@ -120,6 +136,5 @@ public class ModelFatura {
 
     public ModelFatura() {
     }
-    
-    
+
 }

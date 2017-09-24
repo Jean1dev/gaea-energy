@@ -137,6 +137,7 @@ public class FrmFatura extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
 
+        btn_sair.setActionCommand("Sair");
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,11 +318,7 @@ public class FrmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_un_consumidoraActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        try {
-            this.setClosed(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmFatura.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void txt_subtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_subtotalActionPerformed

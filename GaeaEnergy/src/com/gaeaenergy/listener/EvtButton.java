@@ -5,7 +5,6 @@
  */
 package com.gaeaenergy.listener;
 
-import com.gaeaenergy.visual.DesktopPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,10 +12,23 @@ import java.awt.event.ActionListener;
  *
  * @author Jean
  */
-public class EvtButton extends DesktopPane implements ActionListener {
+public class EvtButton implements ActionListener {
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent action) {
+        
+        if ("Sair".equals(action.getActionCommand())) {
 
+        }else if("Entrar".equals(action.getActionCommand())){
+            
+        }else if("Consultar".equals(action.getActionCommand())){
+            
+        }else if("Limpar".equals(action.getActionCommand())){
+        
+        }
+    }
+
+    private void setClosed(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -303,7 +303,7 @@ public class DesktopPane extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_faturaActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        // System.exit(0);
+         System.exit(0);
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficoActionPerformed

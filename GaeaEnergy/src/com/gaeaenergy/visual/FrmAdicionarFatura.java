@@ -5,15 +5,21 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
+import com.gaeaenergy.listener.EvtCadastroFatura;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Jean
  */
 public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
+
+    EvtButton evento = new EvtButton();
+    EvtCadastroFatura l = new EvtCadastroFatura(this);
 
     /**
      * Creates new form FrmAdicionarFatura
@@ -46,7 +52,7 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
         btn_buscar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btn_sair = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_gravar = new javax.swing.JButton();
         txt_subtotal = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txt_desconto = new javax.swing.JTextField();
@@ -104,14 +110,27 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
 
+        btn_sair.setActionCommand("Sair");
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
+        /*
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        */
+        btn_sair.addActionListener(evento);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/save.png"))); // NOI18N
+        btn_gravar.setActionCommand("Gravar");
+        btn_gravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/save.png"))); // NOI18N
+        /*
+        btn_gravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gravarActionPerformed(evt);
+            }
+        });
+        */
+        btn_gravar.addActionListener(l);
 
         txt_subtotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,9 +188,6 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txt_subtotal, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,22 +225,22 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_gravar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(txt_imposto, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_consumo, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                    .addComponent(jLabel6)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
-                                        .addComponent(jLabel14))
-                                    .addComponent(jLabel15)
-                                    .addComponent(txt_horas))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel13)
+                                            .addComponent(txt_imposto, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(35, 35, 35)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_consumo, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addComponent(jLabel14))
+                                            .addComponent(jLabel15)
+                                            .addComponent(txt_horas)))
                                     .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel16)
                                     .addGroup(layout.createSequentialGroup()
@@ -306,7 +322,7 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_gravar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(btn_sair))
                                 .addGap(39, 39, 39))
                             .addGroup(layout.createSequentialGroup()
@@ -364,12 +380,16 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_recebimentoActionPerformed
 
+    private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_gravarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_gravar;
     private javax.swing.JButton btn_receber;
     private javax.swing.JButton btn_sair;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -399,4 +419,49 @@ public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_total;
     private javax.swing.JTextField txt_un_consumidora;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getTxt_consumo() {
+        return txt_consumo;
+    }
+
+    public JTextField getTxt_desconto() {
+        return txt_desconto;
+    }
+
+    public JTextField getTxt_desconto1() {
+        return txt_desconto1;
+    }
+
+    public JTextField getTxt_horas() {
+        return txt_horas;
+    }
+
+    public JTextField getTxt_imposto() {
+        return txt_imposto;
+    }
+
+    public JTextField getTxt_kw() {
+        return txt_kw;
+    }
+
+    public JTextField getTxt_mes() {
+        return txt_mes;
+    }
+
+    public JTextField getTxt_recebimento() {
+        return txt_recebimento;
+    }
+
+    public JTextField getTxt_subtotal() {
+        return txt_subtotal;
+    }
+
+    public JTextField getTxt_total() {
+        return txt_total;
+    }
+
+    public JTextField getTxt_un_consumidora() {
+        return txt_un_consumidora;
+    }
+
 }
