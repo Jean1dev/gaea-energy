@@ -18,7 +18,7 @@ import javax.swing.JTextField;
  */
 public class FrmAdicionarFatura extends javax.swing.JInternalFrame {
 
-    EvtButton evento = new EvtButton();
+    EvtButton evento = new EvtButton(this);
     EvtCadastroFatura l = new EvtCadastroFatura(this);
 
     /**

@@ -13,7 +13,7 @@ import com.gaeaenergy.listener.EvtButton;
  */
 public class FrmPagamentos extends javax.swing.JInternalFrame {
 
-     EvtButton evento = new EvtButton();
+     EvtButton evento = new EvtButton(this);
     /**
      * Creates new form FrmPagamentos
      */

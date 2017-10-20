@@ -7,6 +7,9 @@ package com.gaeaenergy.visual;
 
 import com.gaeaenergy.listener.EvtButton;
 import com.gaeaenergy.listener.EvtPerfil;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -16,7 +19,7 @@ import javax.swing.JTextField;
  */
 public class FrmPerfil extends javax.swing.JInternalFrame {
 
-    EvtButton evento = new EvtButton();
+    EvtButton evento = new EvtButton(this);
     EvtPerfil l = new EvtPerfil(this);
 
     /**
@@ -26,6 +29,12 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
         initComponents();
         this.setTitle("Perfil");
         this.setLocation(100, 100);
+        
+        try {
+            this.setSelected(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPerfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -7,18 +7,37 @@ package com.gaeaenergy.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author Jean
  */
 public class EvtButton implements ActionListener {
+    
+    JInternalFrame frame;
+    //************************* ESSA CLASSE CONTROLA TODOS OS BOTOES BASICOS QUE TODAS OS FRAMES TEM
+    
+    
+    
+    public EvtButton(JInternalFrame frame){
+        this.frame = frame;
+    }
 
     @Override
     public void actionPerformed(ActionEvent action) {
-        
+            
         if ("Sair".equals(action.getActionCommand())) {
-
+            
+            try {
+                frame.setClosed(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(EvtButton.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
         }else if("Entrar".equals(action.getActionCommand())){
             
         }else if("Consultar".equals(action.getActionCommand())){

@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
  */
 public class FrmGrafico extends javax.swing.JInternalFrame {
 
+    EvtButton evento = new EvtButton(this);
     /**
      * Creates new form FrmGrafico
      */
@@ -46,12 +48,16 @@ public class FrmGrafico extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(30, 10, 380, 210);
 
+        btn_sair.setActionCommand("Sair");
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
+        btn_sair.addActionListener(evento);
+        /*
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        */
         jPanel1.add(btn_sair);
         btn_sair.setBounds(160, 230, 85, 73);
 
