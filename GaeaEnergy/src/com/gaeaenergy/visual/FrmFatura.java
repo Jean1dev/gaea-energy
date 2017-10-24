@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,8 @@ import java.util.logging.Logger;
  * @author Jean
  */
 public class FrmFatura extends javax.swing.JInternalFrame {
+
+    EvtButton evento = new EvtButton(this);
 
     /**
      * Creates new form FrmFatura
@@ -144,6 +147,7 @@ public class FrmFatura extends javax.swing.JInternalFrame {
                 btn_sairActionPerformed(evt);
             }
         });
+        btn_sair.addActionListener(evento);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/search.png"))); // NOI18N
 
@@ -328,7 +332,7 @@ public class FrmFatura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_un_consumidoraActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-    
+
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void txt_subtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_subtotalActionPerformed

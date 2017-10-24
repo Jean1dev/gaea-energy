@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,8 @@ import java.util.logging.Logger;
  * @author Jean
  */
 public class FrmCadastroContaBancaria extends javax.swing.JInternalFrame {
+
+    EvtButton evento = new EvtButton(this);
 
     /**
      * Creates new form FrmCadastroContaBancaria
@@ -427,12 +430,15 @@ public class FrmCadastroContaBancaria extends javax.swing.JInternalFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/search.png"))); // NOI18N
 
+        btn_sair.setActionCommand("Sair");
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
+        /*
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        */btn_sair.addActionListener(evento);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

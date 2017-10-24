@@ -312,6 +312,10 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_sairActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btn_sair.setActionCommand(&quot;Sair&quot;);/*"/>
+        <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="*/ btn_sair.addActionListener(evento);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="btn_sair1">
       <Properties>

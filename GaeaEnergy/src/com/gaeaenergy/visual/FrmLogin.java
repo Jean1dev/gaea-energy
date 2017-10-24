@@ -5,13 +5,19 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtLogin;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /**
  *
  * @author JEAN - MURILO 01/09/2017
  */
 public class FrmLogin extends javax.swing.JFrame {
+
+    EvtLogin evento = new EvtLogin(this);
 
     /**
      * Creates new form FrmLogin
@@ -36,10 +42,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTxtLogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton3 = new javax.swing.JButton();
+        jPassw = new javax.swing.JPasswordField();
+        jBtnLogin = new javax.swing.JButton();
+        jRadioLembrar = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -53,12 +60,17 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Senha");
 
-        jButton3.setText("Login");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBtnLogin.setActionCommand("Logar");
+        jBtnLogin.setText("Login");
+        /*
+        jBtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBtnLoginActionPerformed(evt);
             }
         });
+        */jBtnLogin.addActionListener(evento);
+
+        jRadioLembrar.setText("Lembrar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -71,11 +83,14 @@ public class FrmLogin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
-                .addContainerGap(220, Short.MAX_VALUE))
+                    .addComponent(jTxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPassw, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBtnLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jRadioLembrar)))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,13 +98,14 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPassw, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioLembrar))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
@@ -156,12 +172,12 @@ public class FrmLogin extends javax.swing.JFrame {
         user.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jBtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLoginActionPerformed
         // TODO add your handling code here:
-        DesktopPane init = new DesktopPane();
-        this.dispose();
-        init.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+//        DesktopPane init = new DesktopPane();
+//        this.dispose();
+//        init.setVisible(true);
+    }//GEN-LAST:event_jBtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,15 +214,40 @@ public class FrmLogin extends javax.swing.JFrame {
         });
     }
 
+    public JPasswordField getjPassw() {
+        return jPassw;
+    }
+
+    public void setjPassw(JPasswordField jPassw) {
+        this.jPassw = jPassw;
+    }
+
+    public JRadioButton getjRadioLembrar() {
+        return jRadioLembrar;
+    }
+
+    public void setjRadioLembrar(JRadioButton jRadioLembrar) {
+        this.jRadioLembrar = jRadioLembrar;
+    }
+
+    public JTextField getjTxtLogin() {
+        return jTxtLogin;
+    }
+
+    public void setjTxtLogin(JTextField jTxtLogin) {
+        this.jTxtLogin = jTxtLogin;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPassw;
+    private javax.swing.JRadioButton jRadioLembrar;
+    private javax.swing.JTextField jTxtLogin;
     // End of variables declaration//GEN-END:variables
 }

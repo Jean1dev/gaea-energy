@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,8 @@ import java.util.logging.Logger;
  * @author Jean
  */
 public class FrmCadastroCartaoCredito extends javax.swing.JInternalFrame {
+
+    EvtButton evento = new EvtButton(this);
 
     /**
      * Creates new form FrmCadastroCartaoCredito
@@ -143,7 +146,6 @@ public class FrmCadastroCartaoCredito extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButton7)
                         .addGap(35, 35, 35))))
         );
@@ -202,12 +204,15 @@ public class FrmCadastroCartaoCredito extends javax.swing.JInternalFrame {
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        btn_sair.setActionCommand("Sair");
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
+        /*
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        */ btn_sair.addActionListener(evento);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/save.png"))); // NOI18N
 

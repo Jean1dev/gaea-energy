@@ -5,11 +5,15 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.listener.EvtButton;
+
 /**
  *
  * @author Jean
  */
 public class FrmConsultaPagamentos extends javax.swing.JInternalFrame {
+
+    EvtButton evento = new EvtButton(this);
 
     /**
      * Creates new form FrmConsultaPagamentos
@@ -131,12 +135,14 @@ public class FrmConsultaPagamentos extends javax.swing.JInternalFrame {
             .addGap(0, 69, Short.MAX_VALUE)
         );
 
+        btn_sair.setActionCommand("Sair");/*
         btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/back.png"))); // NOI18N
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
+        */ btn_sair.addActionListener(evento);
 
         btn_sair1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
         btn_sair1.addActionListener(new java.awt.event.ActionListener() {
