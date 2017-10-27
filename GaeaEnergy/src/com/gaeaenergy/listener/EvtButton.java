@@ -5,9 +5,11 @@
  */
 package com.gaeaenergy.listener;
 
+import com.gaeaenergy.stream.WriteToFile;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
@@ -19,6 +21,7 @@ import javax.swing.JInternalFrame;
 public class EvtButton implements ActionListener {
     
     JInternalFrame frame;
+    WriteToFile arquivo = new WriteToFile();
     //************************* ESSA CLASSE CONTROLA TODOS OS BOTOES BASICOS QUE TODAS OS FRAMES TEM
     
     
@@ -33,8 +36,9 @@ public class EvtButton implements ActionListener {
         if ("Sair".equals(action.getActionCommand())) {
             
             try {
+                arquivo.geraLog("<<<<<<Saiu da tela");
                 frame.setClosed(true);
-            } catch (PropertyVetoException ex) {
+            } catch (PropertyVetoException | IOException ex) {
                 Logger.getLogger(EvtButton.class.getName()).log(Level.SEVERE, null, ex);
             }
            

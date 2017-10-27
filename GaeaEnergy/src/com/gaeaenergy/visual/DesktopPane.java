@@ -5,6 +5,10 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.stream.WriteToFile;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -17,6 +21,7 @@ import javax.swing.UIManager;
 public class DesktopPane extends javax.swing.JFrame {
 
     final JDesktopPane desktop = new JDesktopPane();
+    WriteToFile arquivo = new WriteToFile();
     FrmFatura frame;
 
     /**
@@ -269,6 +274,11 @@ public class DesktopPane extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menu_salvarFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_salvarFaturaActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE SALVAR FATURA");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmAdicionarFatura fl = new FrmAdicionarFatura();
         painel.add(fl);
         fl.setVisible(true);
@@ -290,29 +300,55 @@ public class DesktopPane extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu12ActionPerformed
 
     private void menu_visualizarFaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_visualizarFaturaActionPerformed
-
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE VISUALIZAÇÃO DE FATURA");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmFatura f1 = new FrmFatura();
         painel.add(f1);
         f1.setVisible(true);
     }//GEN-LAST:event_menu_visualizarFaturaActionPerformed
 
     private void btn_faturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_faturaActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE FATURA");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmFatura f1 = new FrmFatura();
         painel.add(f1);
         f1.setVisible(true);
     }//GEN-LAST:event_btn_faturaActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-         System.exit(0);
+        try {
+            arquivo.geraLog("-------------------------------------------------"+
+                    "SISTEMA ENCERRADO"                                +
+                    "--------------------------------------------------");
+            System.exit(0);
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_graficoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE GRAFICOS");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmGrafico fl = new FrmGrafico();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_btn_graficoActionPerformed
 
     private void menu_graficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_graficoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE GRAFICOS");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmGrafico fl = new FrmGrafico();
         painel.add(fl);
         fl.setVisible(true);
@@ -323,42 +359,77 @@ public class DesktopPane extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_graficoAnualActionPerformed
 
     private void btn_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_perfilActionPerformed
-        FrmPerfil fl = new FrmPerfil();
-        painel.add(fl);
-        fl.setVisible(true);
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PERFIL");
+            FrmPerfil fl = new FrmPerfil();
+            painel.add(fl);
+            fl.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_perfilActionPerformed
 
     private void menu_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_perfilActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PERFIL");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmPerfil fl = new FrmPerfil();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_menu_perfilActionPerformed
 
     private void menu_cadastro_cartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_cartaoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE CADASTRO DE CARTAO DE CREDITO");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmCadastroCartaoCredito fl = new FrmCadastroCartaoCredito();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_menu_cadastro_cartaoActionPerformed
 
     private void menu_cadastro_bancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_bancoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE CADASTRO DE CONTA BANCARIA");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmCadastroContaBancaria fl = new FrmCadastroContaBancaria();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_menu_cadastro_bancoActionPerformed
 
     private void menu_pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_pagamentoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PAGAMETNO");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmPagamentos fl = new FrmPagamentos();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_menu_pagamentoActionPerformed
 
     private void btn_pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagamentoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PAGAMENTO");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmPagamentos fl = new FrmPagamentos();
         painel.add(fl);
         fl.setVisible(true);
     }//GEN-LAST:event_btn_pagamentoActionPerformed
 
     private void menu_consulta_pagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_consulta_pagamentoActionPerformed
+        try {
+            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE CONSULTA DE PAGAMENTO");
+        } catch (IOException ex) {
+            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+        }
         FrmConsultaPagamentos fl = new FrmConsultaPagamentos();
         painel.add(fl);
         fl.setVisible(true);

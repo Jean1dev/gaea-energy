@@ -6,10 +6,16 @@
 package com.gaeaenergy.stream;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -34,8 +40,8 @@ public class WriteToFile {
         escritorArquivos.close();
     }
 
-    public void geraLog(String mensagem, String logFile) throws IOException {
-        FileOutputStream escritorArquivos = new FileOutputStream(logFile, true);
+    public void geraLog(String mensagem) throws IOException {
+        FileOutputStream escritorArquivos = new FileOutputStream("log.txt", true);
         int tamanho = 0;
         String data = (new java.util.Date()).toString();
         String msg = ":: " + data + " :: " + mensagem;
@@ -62,7 +68,7 @@ public class WriteToFile {
 
             bufferedReader.close();
             return linha;
-        }else{
+        } else {
             return "";
         }
 
@@ -74,6 +80,39 @@ public class WriteToFile {
         if (file.isFile()) {
             return true;
         } else {
+            return false;
+        }
+    }
+
+    public boolean setFileContentAsStackTrace(File file, Throwable t, boolean append) {
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        t.printStackTrace(pw);
+       // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy aa hh:mm:ss");
+        String text = "\r\n\r\n" + "\r\n" + sw.toString();
+        pw.close();
+        try {
+            sw.close();
+        } catch (Exception e) {
+        }
+        return setFileContentAsText(file, text, append);
+    }
+
+    public boolean setFileContentAsText(File file, String text, boolean append) {
+        try {
+            if (file == null || !file.exists() || !file.isFile()) {
+                throw new FileNotFoundException(file.getAbsolutePath());
+            }
+            if (text == null) {
+                text = "";
+            }
+            FileWriter fw = new FileWriter(file, append);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(text);
+            bw.close();
+            fw.close();
+            return true;
+        } catch (Exception e) {
             return false;
         }
     }

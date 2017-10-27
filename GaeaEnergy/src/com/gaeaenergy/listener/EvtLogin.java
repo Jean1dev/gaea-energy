@@ -38,7 +38,7 @@ public class EvtLogin implements ActionListener {
 
                 try {
                     escrever.escrever(login.getjTxtLogin().getText().toString(), "login.txt");
-                    escrever.geraLog(">>>>Usuario logou no sistema", "log.txt");
+                    escrever.geraLog(">>>>Usuario logou no sistema");
                 } catch (IOException ex) {
                     Logger.getLogger(EvtLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -47,6 +47,8 @@ public class EvtLogin implements ActionListener {
             login.dispose();
             init.setVisible(true);
         }
+        
+      
     }
 
 }
