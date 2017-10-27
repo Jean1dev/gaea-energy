@@ -6,6 +6,10 @@
 package com.gaeaenergy.visual;
 
 import com.gaeaenergy.listener.EvtLogin;
+import com.gaeaenergy.stream.WriteToFile;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -18,7 +22,7 @@ import javax.swing.JTextField;
 public class FrmLogin extends javax.swing.JFrame {
 
     EvtLogin evento = new EvtLogin(this);
-
+    WriteToFile arquivo = new WriteToFile();
     /**
      * Creates new form FrmLogin
      */
@@ -29,6 +33,12 @@ public class FrmLogin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "*****ATENÇÃO*******\n"
                 + "ESSA TELA DE LOGIN E A TELA DE CADASTRO INICIAL AINDA NAO\n"
                 + "ESTAO PRONTAS, PARA ABRIR O SISTEMA BASTA CLICAR EM LOGIN");
+        
+        try {
+            jTxtLogin.setText(arquivo.recuperaLogin());
+        } catch (IOException ex) {
+            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
