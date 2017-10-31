@@ -44,7 +44,7 @@ public class WriteToFile {
         FileOutputStream escritorArquivos = new FileOutputStream("log.txt", true);
         int tamanho = 0;
         String data = (new java.util.Date()).toString();
-        String msg = ":: " + data + " :: " + mensagem;
+        String msg = "\n:: " + data + " :: " + mensagem + "\n";
 
         while (tamanho < msg.length()) {
             escritorArquivos.write((int) msg.charAt(tamanho++));
@@ -84,11 +84,12 @@ public class WriteToFile {
         }
     }
 
-    public boolean setFileContentAsStackTrace(File file, Throwable t, boolean append) {
+    public boolean setFileContentAsStackTrace(Throwable t, boolean append) {
+        File file = new File("log.txt");
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         t.printStackTrace(pw);
-       // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy aa hh:mm:ss");
+        // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy aa hh:mm:ss");
         String text = "\r\n\r\n" + "\r\n" + sw.toString();
         pw.close();
         try {
@@ -98,7 +99,7 @@ public class WriteToFile {
         return setFileContentAsText(file, text, append);
     }
 
-    public boolean setFileContentAsText(File file, String text, boolean append) {
+    private boolean setFileContentAsText(File file, String text, boolean append) {
         try {
             if (file == null || !file.exists() || !file.isFile()) {
                 throw new FileNotFoundException(file.getAbsolutePath());

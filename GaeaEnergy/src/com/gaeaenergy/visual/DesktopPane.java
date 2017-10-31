@@ -6,6 +6,7 @@
 package com.gaeaenergy.visual;
 
 import com.gaeaenergy.stream.WriteToFile;
+import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ import javax.swing.UIManager;
  */
 public class DesktopPane extends javax.swing.JFrame {
 
+    WriteToFile write = new WriteToFile();
     final JDesktopPane desktop = new JDesktopPane();
     WriteToFile arquivo = new WriteToFile();
     FrmFatura frame;
@@ -323,9 +325,9 @@ public class DesktopPane extends javax.swing.JFrame {
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         try {
-            arquivo.geraLog("-------------------------------------------------"+
-                    "SISTEMA ENCERRADO"                                +
-                    "--------------------------------------------------");
+            arquivo.geraLog("-------------------------------------------------"
+                    + "SISTEMA ENCERRADO"
+                    + "--------------------------------------------------");
             System.exit(0);
         } catch (IOException ex) {
             Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
@@ -364,8 +366,10 @@ public class DesktopPane extends javax.swing.JFrame {
             FrmPerfil fl = new FrmPerfil();
             painel.add(fl);
             fl.setVisible(true);
+        } catch (ExceptionInInitializerError ex) {
+            write.setFileContentAsStackTrace(ex, true);
         } catch (IOException ex) {
-            Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+            write.setFileContentAsStackTrace(ex, true);
         }
     }//GEN-LAST:event_btn_perfilActionPerformed
 

@@ -8,11 +8,13 @@ package com.gaeaenergy.listener;
 import com.gaeaenergy.exceptions.ExceptionLabel;
 import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.model.ModelUsuarioFinal;
+import com.gaeaenergy.stream.WriteToFile;
 import com.gaeaenergy.visual.FrmPerfil;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,16 +64,24 @@ public class EvtPerfil implements ActionListener {
                     0);
 
             user.print();
-            try {
-                validacao.ValidacaoSimples(perfil.getTxt_nome().getText(),
-                        perfil.getTxt_completo().getText(),
-                        perfil.getTxt_fone().getText(),
-                        perfil.getTxt_endereco().getText(),
-                        perfil.getTxt_email().getText());
-            } catch (ExceptionLabel ex) {
-                Logger.getLogger(EvtPerfil.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            //ATENÇAO O CODIGO ABAIXO PODE LHE CAUSAR NAUSES E TONTURAS, LEIA POR SUA CONTA E RISCO
+//            Exception ValidaNome = null;
+//            if(validacao.ValidaNome(perfil.getTxt_nome().getText())!=null){
+//                JOptionPane.showMessageDialog(perfil, ValidaNome);
+//            }else if(valida)
+//              DESISTI DE IMPLEMENTAR
+
+//            try {
+//                validacao.ValidacaoSimples(perfil, perfil.getTxt_nome().getText(),
+//                        perfil.getTxt_completo().getText(),
+//                        perfil.getTxt_fone().getText(),
+//                        perfil.getTxt_endereco().getText(),
+//                        perfil.getTxt_email().getText());
+//            } catch (ExceptionLabel ex) {
+//                Logger.getLogger(EvtPerfil.class.getName()).log(Level.SEVERE, null, ex);
+//                WriteToFile write = new WriteToFile();
+//                write.setFileContentAsStackTrace(ex, true);
+//            }
         }
     }
-
 }

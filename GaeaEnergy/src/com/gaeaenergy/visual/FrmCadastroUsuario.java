@@ -15,9 +15,10 @@ import javax.swing.JTextField;
  * @author JEAN - MURILO 01/09/2017
  */
 public class FrmCadastroUsuario extends javax.swing.JFrame {
-    
-    //ENVIA UM NOVO 
+
+    //ENVIA UM NOVO
     private EvtCadastroUsuario l = new EvtCadastroUsuario(this);
+
     /**
      * Creates new form FrmCadastroUsuario
      */
@@ -26,7 +27,6 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         this.setTitle("Cadastro de Usuario");
         this.setLocationRelativeTo(null);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -237,11 +237,7 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
-        ModelUsuario user = new ModelUsuario();
-        user.setNome(txtNome.getText());
-        user.setEmail(txtEmail.getText());
-        user.setSenha(txtSenha.getText());
-        user.print();
+
     }//GEN-LAST:event_btnCadastroActionPerformed
 
     /**

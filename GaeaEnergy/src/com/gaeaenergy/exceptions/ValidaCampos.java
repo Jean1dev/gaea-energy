@@ -5,6 +5,8 @@
  */
 package com.gaeaenergy.exceptions;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author Jean
@@ -14,11 +16,11 @@ public class ValidaCampos {
     public ValidaCampos() {
     }
 
-    public void ValidacaoSimples(String param1, String param2,
+    public void ValidacaoSimples(JInternalFrame frame, String param1, String param2,
             String param3, String param4, String param5) throws ExceptionLabel {
 
         if (param1.equals("")) {
-            throw new ExceptionLabel(param1);
+            System.out.println("errouuuuuuuuuuuuuuuuuuu");
         }
 
         if (param2.equals("")) {
@@ -37,5 +39,12 @@ public class ValidaCampos {
             throw new ExceptionLabel(param5);
         }
 
+    }
+
+    public Exception ValidaNome(String nome) {
+        if (nome.equals("")) {
+            return new ExceptionLabel(nome);
+        }
+        return null;
     }
 }
