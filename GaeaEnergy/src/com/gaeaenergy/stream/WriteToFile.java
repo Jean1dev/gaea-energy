@@ -84,7 +84,7 @@ public class WriteToFile {
         }
     }
 
-    public boolean setFileContentAsStackTrace(Throwable t, boolean append) {
+    public boolean jogaPilhaNoArquivo(Throwable t, boolean append) {
         File file = new File("log.txt");
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);

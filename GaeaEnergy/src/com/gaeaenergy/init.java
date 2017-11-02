@@ -9,9 +9,12 @@ import com.gaeaenergy.visual.FrmLogin;
 
 /**
  *
- *  JEAN - MURILO        01/09/2017
+ * JEAN - MURILO 01/09/2017
  */
 public class init {
+
+    public String mensagem_inicial = "Para uma melhor avaliação, antes de começar a usar o software entre na "
+            + "aba SOBRE, para saber o que já foi implementado";
 
     /**
      * @param args the command line arguments
@@ -21,5 +24,9 @@ public class init {
         FrmLogin init = new FrmLogin();
         init.setVisible(true);
     }
-    
+
+    public init() {
+
+    }
+
 }

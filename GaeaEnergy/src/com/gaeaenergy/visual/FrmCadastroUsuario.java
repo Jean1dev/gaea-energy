@@ -5,8 +5,10 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.exceptions.ExceptionLabel;
+import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.listener.EvtCadastroUsuario;
-import com.gaeaenergy.model.ModelUsuario;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -16,6 +18,7 @@ import javax.swing.JTextField;
  */
 public class FrmCadastroUsuario extends javax.swing.JFrame {
 
+    ValidaCampos validar = new ValidaCampos();
     //ENVIA UM NOVO
     private EvtCadastroUsuario l = new EvtCadastroUsuario(this);
 
@@ -223,10 +226,12 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
 
     private void rdnMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnMascActionPerformed
         // TODO add your handling code here:
+        this.rdnFem.setSelected(false);
     }//GEN-LAST:event_rdnMascActionPerformed
 
     private void rdnFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdnFemActionPerformed
         // TODO add your handling code here:
+        this.rdnMasc.setSelected(false);
     }//GEN-LAST:event_rdnFemActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -314,4 +319,43 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         return txtSobrenome;
     }
 
+    public void gravarRegistro() throws ExceptionLabel {
+        validaCampos();
+        JOptionPane.showMessageDialog(this, "Cadastrado com sucesso");
+        this.setVisible(false);
+        FrmLogin login = new FrmLogin();
+        login.setVisible(true);
+    }
+
+    public void validaCampos() throws ExceptionLabel {
+        int resultado = validar.validaSenha(this.txtSenha.getText(), this.txtSenhaConfirma.getText());
+
+        if (validar.ValidaNome(this.txtNome.getText())) {
+            JOptionPane.showMessageDialog(this, "Prencha o campo nome");
+            throw new ExceptionLabel();
+        }
+
+        if (validar.ValidaNome(this.txtEmail.getText())) {
+            JOptionPane.showMessageDialog(this, "Prencha o campo email");
+            throw new ExceptionLabel();
+        }
+
+        if (validar.ValidaNome(this.txtSobrenome.getText())) {
+            JOptionPane.showMessageDialog(this, "Prencha o campo sobrenome");
+            throw new ExceptionLabel();
+        }
+
+        if (resultado == 1) {
+            JOptionPane.showMessageDialog(this, "Senha muito curta");
+            throw new ExceptionLabel();
+        } else if (resultado == 2) {
+            JOptionPane.showMessageDialog(this, "Prencha as duas senhas iguais");
+            throw new ExceptionLabel();
+        }
+
+        if (!this.rdnFem.isSelected() || this.rdnMasc.isSelected()) {
+            JOptionPane.showMessageDialog(this, "marque uma opção para o sexo");
+            throw new ExceptionLabel();
+        }
+    }
 }

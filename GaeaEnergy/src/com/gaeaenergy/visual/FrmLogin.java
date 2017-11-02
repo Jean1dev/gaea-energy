@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.init;
 import com.gaeaenergy.listener.EvtLogin;
 import com.gaeaenergy.stream.WriteToFile;
 import java.io.IOException;
@@ -21,8 +22,10 @@ import javax.swing.JTextField;
  */
 public class FrmLogin extends javax.swing.JFrame {
 
+    init mensagem = new init();
     EvtLogin evento = new EvtLogin(this);
     WriteToFile arquivo = new WriteToFile();
+
     /**
      * Creates new form FrmLogin
      */
@@ -30,10 +33,8 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Login");
         this.setLocationRelativeTo(null);
-        JOptionPane.showMessageDialog(this, "*****ATENÇÃO*******\n"
-                + "ESSA TELA DE LOGIN E A TELA DE CADASTRO INICIAL AINDA NAO\n"
-                + "ESTAO PRONTAS, PARA ABRIR O SISTEMA BASTA CLICAR EM LOGIN");
-        
+        JOptionPane.showMessageDialog(this, mensagem.mensagem_inicial);
+
         try {
             jTxtLogin.setText(arquivo.recuperaLogin());
         } catch (IOException ex) {
@@ -58,7 +59,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jBtnLogin = new javax.swing.JButton();
         jRadioLembrar = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_sobre = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,7 +127,12 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Sobre");
+        btn_sobre.setText("Sobre");
+        btn_sobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sobreActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Ainda não possui conta? Cadastre-se");
@@ -144,7 +150,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(btn_sobre)
                         .addGap(97, 97, 97)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -162,7 +168,7 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(btn_sobre)
                     .addComponent(jButton4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -188,6 +194,13 @@ public class FrmLogin extends javax.swing.JFrame {
 //        this.dispose();
 //        init.setVisible(true);
     }//GEN-LAST:event_jBtnLoginActionPerformed
+
+    private void btn_sobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sobreActionPerformed
+        // TODO add your handling code here:
+        Sobre sobre = new Sobre();
+        this.dispose();
+        sobre.setVisible(true);
+    }//GEN-LAST:event_btn_sobreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,9 +262,9 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_sobre;
     private javax.swing.JButton jBtnLogin;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

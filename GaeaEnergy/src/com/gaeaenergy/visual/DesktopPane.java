@@ -367,9 +367,9 @@ public class DesktopPane extends javax.swing.JFrame {
             painel.add(fl);
             fl.setVisible(true);
         } catch (ExceptionInInitializerError ex) {
-            write.setFileContentAsStackTrace(ex, true);
+            write.jogaPilhaNoArquivo(ex, true);
         } catch (IOException ex) {
-            write.setFileContentAsStackTrace(ex, true);
+            write.jogaPilhaNoArquivo(ex, true);
         }
     }//GEN-LAST:event_btn_perfilActionPerformed
 

@@ -5,10 +5,13 @@
  */
 package com.gaeaenergy.listener;
 
+import com.gaeaenergy.exceptions.ExceptionLabel;
 import com.gaeaenergy.model.ModelUsuario;
 import com.gaeaenergy.visual.FrmCadastroUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,23 +19,28 @@ import java.awt.event.ActionListener;
  */
 public class EvtCadastroUsuario implements ActionListener {
 
-  
     private FrmCadastroUsuario frame;
-    
-    public EvtCadastroUsuario(FrmCadastroUsuario frame){
+
+    public EvtCadastroUsuario(FrmCadastroUsuario frame) {
         this.frame = frame;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if("Gravar".equals(e.getActionCommand())){
-            ModelUsuario user = new ModelUsuario();
-            
-            user.setNome(frame.getTxtNome().getText());
-            user.setEmail(frame.getTxtEmail().getText());
-            user.setSenha(frame.getTxtSenha().getText());
-            user.print();
+
+        if ("Gravar".equals(e.getActionCommand())) {
+            try {
+                ModelUsuario user = new ModelUsuario();
+
+                user.setNome(frame.getTxtNome().getText());
+                user.setEmail(frame.getTxtEmail().getText());
+                user.setSenha(frame.getTxtSenha().getText());
+                user.print();
+                frame.gravarRegistro();
+            } catch (ExceptionLabel ex) {
+                Logger.getLogger(EvtCadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
-    
+
 }

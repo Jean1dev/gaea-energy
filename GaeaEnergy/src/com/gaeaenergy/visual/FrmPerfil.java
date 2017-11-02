@@ -5,11 +5,15 @@
  */
 package com.gaeaenergy.visual;
 
+import com.gaeaenergy.exceptions.ExceptionLabel;
+import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.listener.EvtButton;
 import com.gaeaenergy.listener.EvtPerfil;
+import com.gaeaenergy.stream.WriteToFile;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -21,6 +25,8 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
 
     EvtButton evento = new EvtButton(this);
     EvtPerfil l = new EvtPerfil(this);
+    ValidaCampos validar = new ValidaCampos();
+    WriteToFile arquivo = new WriteToFile();
 
     /**
      * Creates new form FrmPerfil
@@ -29,7 +35,10 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
         initComponents();
         this.setTitle("Perfil");
         this.setLocation(100, 100);
-        
+
+        this.txt_cnpj.setEditable(false);
+        this.txt_cpf.setEditable(false);
+
         try {
             this.setSelected(true);
         } catch (PropertyVetoException ex) {
@@ -49,8 +58,8 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioCPF = new javax.swing.JRadioButton();
+        jRadioCNPJ = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         txt_cpf = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -127,18 +136,28 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        jRadioButton1.setText("Fisica");
+        jRadioCPF.setText("Fisica");
+        jRadioCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioCPFActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Juridica");
+        jRadioCNPJ.setText("Juridica");
+        jRadioCNPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioCNPJActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jRadioButton1)
+                .addComponent(jRadioCPF)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(jRadioCNPJ)
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,8 +165,8 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 7, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)))
+                    .addComponent(jRadioCPF)
+                    .addComponent(jRadioCNPJ)))
         );
 
         jLabel1.setText("CPF");
@@ -562,13 +581,11 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
 
         btn_gravar.setActionCommand("Gravar");
         btn_gravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/save.png"))); // NOI18N
-        /*
         btn_gravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gravarActionPerformed(evt);
             }
         });
-        */
         btn_gravar.addActionListener(l);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/gaeenergy/images/print.png"))); // NOI18N
@@ -686,7 +703,24 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
 
     private void btn_gravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gravarActionPerformed
         // TODO add your handling code here:
+        System.out.println("teste");
     }//GEN-LAST:event_btn_gravarActionPerformed
+
+    private void jRadioCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCPFActionPerformed
+        // TODO add your handling code here:
+        this.txt_cpf.setEditable(true);
+        this.txt_cnpj.setEditable(false);
+        this.txt_cnpj.setText("");
+        this.jRadioCNPJ.setSelected(false);
+    }//GEN-LAST:event_jRadioCPFActionPerformed
+
+    private void jRadioCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioCNPJActionPerformed
+        // TODO add your handling code here:
+        this.txt_cnpj.setEditable(true);
+        this.txt_cpf.setEditable(false);
+        this.txt_cpf.setText("");
+        this.jRadioCPF.setSelected(false);
+    }//GEN-LAST:event_jRadioCNPJActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_gravar;
@@ -736,11 +770,11 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioCNPJ;
+    private javax.swing.JRadioButton jRadioCPF;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -862,4 +896,39 @@ public class FrmPerfil extends javax.swing.JInternalFrame {
         return txt_uf;
     }
 
+    public void gravarRegistro() throws ExceptionLabel {
+        validaCampos();
+        int resposta = JOptionPane.showConfirmDialog(null, "Cadastro realizado, deseja sair da tela?", "AVISO", JOptionPane.YES_OPTION);
+        if (resposta == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
+    }
+
+    private void validaCampos() throws ExceptionLabel {
+
+        //VALIDAÇÃO DO NOME
+        if (validar.ValidaNome(this.txt_nome.getText())) {
+            JOptionPane.showMessageDialog(this, "Preencha o nome");
+            throw new ExceptionLabel(this.txt_nome.getText());
+        }
+        //FIM DA VALIDAÇÃO
+
+        //VALIDAÇAO CPF CNPJ
+        if (this.jRadioCPF.isSelected()) {
+            if (validar.ValidaCPF_CPNJ(this.txt_cpf.getText())) {
+                JOptionPane.showMessageDialog(this, "CPF invalido");
+                throw new ExceptionLabel("CPF");
+            }
+        } else if (this.jRadioCNPJ.isSelected()) {
+            if (validar.ValidaCPF_CPNJ(this.txt_cnpj.getText())) {
+                JOptionPane.showMessageDialog(this, "CNPJ invalido");
+                throw new ExceptionLabel("CNPJ");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Preencha o CNPJ ou CPF");
+            throw new ExceptionLabel();
+        }
+        //FIM DA VALIDAÇÃO
+
+    }
 }
