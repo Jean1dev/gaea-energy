@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -43,19 +41,37 @@ public class UsuarioDAO {
         }
     }
     
-    public void insert(ModelUsuario user){
+    public void insert(ModelUsuario user) throws SQLException{
         int codigo = getUltimo() ;
         
         try {
             connection = Conector.getConnection();
-            String sql = "";
+            String sql = "INSERT INTO usuario("
+                    + "id_user,"
+                    + "nome,"
+                    + "sobrenome,"
+                    + "email,"
+                    + "senha)"
+                    + " VALUES(?, ?, ?, ?)";
             
             stm = connection.prepareStatement(sql);
+            stm.setInt(1, user.getId());
+            stm.setString(2, user.getNome());
+            stm.setString(3, user.getSobrenome());
+            stm.setString(4, user.getEmail());
+            stm.setString(5, user.getSenha());
+            
+            stm.execute();
+            connection.commit();
+            System.out.println("SUCESSO AO GRAVAR NO BANCO");
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            connection.rollback();
+            log.jogaPilhaNoArquivo(ex, true);
+            System.out.println("EXCPTION ROLLBACK");
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.jogaPilhaNoArquivo(ex, true);
+            System.out.println("EXCEPTION SQL");
         }
     }
     
@@ -71,9 +87,9 @@ public class UsuarioDAO {
             return 1;
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.jogaPilhaNoArquivo(ex, true);
         } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            log.jogaPilhaNoArquivo(ex, true);
         }
         return 0;
         

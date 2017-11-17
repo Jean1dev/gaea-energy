@@ -353,7 +353,7 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
             throw new ExceptionLabel();
         }
 
-        if (!this.rdnFem.isSelected() || this.rdnMasc.isSelected()) {
+        if (!this.rdnFem.isSelected() && !this.rdnMasc.isSelected()) {
             JOptionPane.showMessageDialog(this, "marque uma opção para o sexo");
             throw new ExceptionLabel();
         }
