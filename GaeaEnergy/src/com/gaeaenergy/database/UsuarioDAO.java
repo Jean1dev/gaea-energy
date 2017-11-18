@@ -42,7 +42,7 @@ public class UsuarioDAO {
     }
     
     public void insert(ModelUsuario user) throws SQLException{
-        int codigo = getUltimo() ;
+        //int codigo = getUltimo() ;
         
         try {
             connection = Conector.getConnection();

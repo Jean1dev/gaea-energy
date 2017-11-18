@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class EvtCadastroUsuario implements ActionListener {
 
     private FrmCadastroUsuario frame;
-    private UsuarioDAO db;
+    private UsuarioDAO db = new UsuarioDAO();
 
     public EvtCadastroUsuario(FrmCadastroUsuario frame) {
         this.frame = frame;
@@ -41,10 +41,13 @@ public class EvtCadastroUsuario implements ActionListener {
                 user.setSenha(frame.getTxtSenha().getText());
                 user.print();
                 frame.gravarRegistro();
+                testaConexao();
                 db.insert(user);
             } catch (ExceptionLabel ex) {
                 Logger.getLogger(EvtCadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
+                Logger.getLogger(EvtCadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(EvtCadastroUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
