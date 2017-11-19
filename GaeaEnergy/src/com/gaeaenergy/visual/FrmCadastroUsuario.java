@@ -8,6 +8,7 @@ package com.gaeaenergy.visual;
 import com.gaeaenergy.exceptions.ExceptionLabel;
 import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.listener.EvtCadastroUsuario;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -29,6 +30,8 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         initComponents();
         this.setTitle("Cadastro de Usuario");
         this.setLocationRelativeTo(null);
+        btn_excluir.setVisible(false);
+        btn_atualizar.setVisible(false);
     }
 
     /**
@@ -56,6 +59,8 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         btnCadastro = new javax.swing.JButton();
         rdnMasc = new javax.swing.JRadioButton();
         rdnFem = new javax.swing.JRadioButton();
+        btn_excluir = new javax.swing.JButton();
+        btn_atualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +122,14 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        btn_excluir.setActionCommand("Excluir");
+        btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(l);
+
+        btn_atualizar.setActionCommand("Atualizar");
+        btn_atualizar.setText("Atualizar");
+        btn_atualizar.addActionListener(l);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,11 +167,14 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
                         .addComponent(rdnFem)
                         .addGap(129, 129, 129))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jComboBox1, txtEmail, txtNome, txtSenha, txtSenhaConfirma, txtSobrenome});
@@ -194,19 +210,17 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rdnFem)
-                            .addComponent(rdnMasc))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdnFem)
+                    .addComponent(rdnMasc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jComboBox1, txtEmail, txtNome, txtSenha, txtSenhaConfirma, txtSobrenome});
@@ -283,6 +297,8 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastro;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JButton btn_atualizar;
+    private javax.swing.JButton btn_excluir;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -357,5 +373,13 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "marque uma opção para o sexo");
             throw new ExceptionLabel();
         }
+    }
+
+    public void preparaAmbiente() throws IOException {
+        btn_excluir.setVisible(true);
+        btn_atualizar.setVisible(true);
+        btnCadastro.setVisible(false);
+        btnVoltar.setVisible(false);
+        txtNome.setText(l.preparaAmbiente());
     }
 }

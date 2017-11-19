@@ -375,13 +375,17 @@ public class DesktopPane extends javax.swing.JFrame {
 
     private void menu_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_perfilActionPerformed
         try {
-            arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PERFIL");
+            try {
+                arquivo.geraLog(">>>>>>>USUARIO ENTROU NA TELA DE PERFIL");
+            } catch (IOException ex) {
+                Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            FrmCadastroUsuario fl = new FrmCadastroUsuario();
+            fl.preparaAmbiente();
+            fl.setVisible(true);
         } catch (IOException ex) {
             Logger.getLogger(DesktopPane.class.getName()).log(Level.SEVERE, null, ex);
         }
-        FrmPerfil fl = new FrmPerfil();
-        painel.add(fl);
-        fl.setVisible(true);
     }//GEN-LAST:event_menu_perfilActionPerformed
 
     private void menu_cadastro_cartaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_cadastro_cartaoActionPerformed

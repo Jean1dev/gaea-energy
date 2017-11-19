@@ -118,6 +118,11 @@ public class WriteToFile {
         }
     }
 
+    public void limparLog() {
+        File file = new File("login.txt");
+        file.delete();
+    }
+
 //    public static void main( String[] args ) {
 //
 //        try {
