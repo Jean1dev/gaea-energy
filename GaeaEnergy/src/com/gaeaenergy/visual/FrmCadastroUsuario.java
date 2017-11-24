@@ -9,6 +9,7 @@ import com.gaeaenergy.exceptions.ExceptionLabel;
 import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.listener.EvtCadastroUsuario;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -375,7 +376,7 @@ public class FrmCadastroUsuario extends javax.swing.JFrame {
         }
     }
 
-    public void preparaAmbiente() throws IOException {
+    public void preparaAmbiente() throws IOException, SQLException {
         btn_excluir.setVisible(true);
         btn_atualizar.setVisible(true);
         btnCadastro.setVisible(false);

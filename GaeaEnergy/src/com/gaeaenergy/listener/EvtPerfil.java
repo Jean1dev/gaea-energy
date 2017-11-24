@@ -5,6 +5,7 @@
  */
 package com.gaeaenergy.listener;
 
+import com.gaeaenergy.database.UsuarioFinalDAO;
 import com.gaeaenergy.exceptions.ExceptionLabel;
 import com.gaeaenergy.exceptions.ValidaCampos;
 import com.gaeaenergy.model.ModelUsuarioFinal;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 public class EvtPerfil implements ActionListener {
 
     private FrmPerfil perfil;
+    UsuarioFinalDAO db = new UsuarioFinalDAO();
 
     public EvtPerfil(FrmPerfil perfil) {
         this.perfil = perfil;
@@ -64,6 +66,7 @@ public class EvtPerfil implements ActionListener {
 
                 user.print();
                 perfil.gravarRegistro();
+                db.insert(user);
                 //ATENÇAO O CODIGO ABAIXO PODE LHE CAUSAR NAUSES E TONTURAS, LEIA POR SUA CONTA E RISCO
 //            Exception ValidaNome = null;
 //            if(validacao.ValidaNome(perfil.getTxt_nome().getText())!=null){
@@ -83,6 +86,8 @@ public class EvtPerfil implements ActionListener {
 //                write.setFileContentAsStackTrace(ex, true);
 //            }
             } catch (ExceptionLabel ex) {
+                Logger.getLogger(EvtPerfil.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
                 Logger.getLogger(EvtPerfil.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
