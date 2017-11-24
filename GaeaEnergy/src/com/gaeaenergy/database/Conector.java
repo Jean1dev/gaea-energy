@@ -36,18 +36,4 @@ public class Conector {
         
         return connection;
     }
-    
-    public boolean testaConexao() throws ClassNotFoundException{
-        Connection connection = null;
-
-            Class.forName(driver_db);
-        try {
-            connection = DriverManager.getConnection(url, db_user, db_password);
-            return true;
-        } catch (SQLException ex) {
-            WriteToFile log = new WriteToFile();
-            log.jogaPilhaNoArquivo(ex, true);
-            return false;
-        }
-    }
 }

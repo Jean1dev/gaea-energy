@@ -13,6 +13,7 @@ public class ModelCidade {
     
     private String cidade;
     private String estado;
+    private int codigo;
 
     public String getCidade() {
         return cidade;
@@ -34,6 +35,17 @@ public class ModelCidade {
         this.cidade = cidade;
         this.estado = estado;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
+    
+    
 
     public ModelCidade() {
     }

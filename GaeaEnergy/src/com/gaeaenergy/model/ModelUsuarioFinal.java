@@ -26,6 +26,7 @@ public class ModelUsuarioFinal {
     private int pais;
 
     //GERAL
+    private int codigo;
     private String fone;
     private String fone2;
     private String campo;
@@ -323,4 +324,16 @@ public class ModelUsuarioFinal {
         this.tipo = tipo;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
+    
+
 }
+
+

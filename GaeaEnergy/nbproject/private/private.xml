@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/listener/EvtCadastroUsuario.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/visual/FrmCadastroUsuario.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/visual/FrmLogin.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/init.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/exceptions/ValidaCampos.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/visual/Sobre.java</file>
-            <file>file:/C:/Users/Jean/Documents/GitHub/GAEA%20ENERGY/gaea-energy/GaeaEnergy/src/com/gaeaenergy/visual/FrmPerfil.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
