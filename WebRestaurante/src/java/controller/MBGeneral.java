@@ -22,7 +22,7 @@ import javax.script.ScriptException;
 public class MBGeneral extends MBAbstract {
 
     private String MensagemAlerta;
-    private String ObjectControll;
+    public String ObjectControll;
     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
 
     public String getMensagemAlerta() {

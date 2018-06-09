@@ -18,7 +18,7 @@ public class JPA {
     public static EntityManager getEM() {
         if (emf == null) {
             emf = Persistence.createEntityManagerFactory(
-                    "WebRestaurante");
+                    "WebRestaurantePersistence");
         }
 
         return emf.createEntityManager();
