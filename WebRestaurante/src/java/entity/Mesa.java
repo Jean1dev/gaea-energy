@@ -7,6 +7,8 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import repository.MesaRepository;
 
@@ -18,8 +20,18 @@ import repository.MesaRepository;
 public class Mesa extends MesaRepository implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
     private Integer nrMesa;
+    private boolean aberta;
+
+    public boolean isAberta() {
+        return aberta;
+    }
+
+    public void setAberta(boolean aberta) {
+        this.aberta = aberta;
+    }
 
     public Integer getCodigo() {
         return codigo;

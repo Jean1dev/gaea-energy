@@ -1,14 +1,76 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Web Restaurante</title>
+        <meta charset="utf-8"></meta>
+
+        <!-- Bootstrap core CSS -->
+        <link href="public/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <link href="public/css/style.css" rel="stylesheet"></link>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="public/css/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet"></link>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
+        <!-- TOPO -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Restaurante Web</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEUDO -->
+        <div class="jumbotron">
+            <div class="container">
+
+
+                <!-- INICIO DO MENU -->
+                <div class="menu" float="right">
+                    <h:form>
+                        <p:growl id="messages" showDetail="true"/>
+
+                        <p:menuButton value="Options">
+                            <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk"/>
+                            <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                            <p:menuitem value="Delete" actionListener="#{menuView.delete}" ajax="false" icon="ui-icon-close"/>
+                            <p:separator />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+                        </p:menuButton>
+                        <p:menuButton value="testes">
+
+                        </p:menuButton>
+                    </h:form>    
+                </div> 
+                <!-- FIM DO MENU -->
+               <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
+               <h:form>
+                   <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa">
+                       <p:column headerText="ID">
+                           <h:outputText value="#{mesa.codigo}"></h:outputText>
+                       </p:column>
+                       <p:column headerText="numero da mesa">
+                           <h:outputText value="#{mesa.nrMesa}"></h:outputText>
+                       </p:column>
+                   </p:dataTable>
+               </h:form>
+            </div>
+        </div>
+
+        <!-- RODAPE -->
+        <div class="container">
+            <footer>
+                <p>&copy;2018</p>
+            </footer>
+        </div>
     </h:body>
 </html>
 
