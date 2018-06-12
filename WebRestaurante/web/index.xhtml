@@ -45,23 +45,38 @@
                             <p:separator />
                             <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
                         </p:menuButton>
-                        <p:menuButton value="testes">
-
+                        <p:menuButton value="Cadastrar">
+                            <p:menuitem value="Mesa" action="cadastros/mesa?faces-redirect=true" icon="ui-icon-disk"/>
+                            <p:menuitem value="Produto" action="cadastros/produto?faces-redirect=true" icon="ui-icon-disk"/>
                         </p:menuButton>
                     </h:form>    
                 </div> 
                 <!-- FIM DO MENU -->
-               <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
-               <h:form>
-                   <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa">
-                       <p:column headerText="ID">
-                           <h:outputText value="#{mesa.codigo}"></h:outputText>
-                       </p:column>
-                       <p:column headerText="numero da mesa">
-                           <h:outputText value="#{mesa.nrMesa}"></h:outputText>
-                       </p:column>
-                   </p:dataTable>
-               </h:form>
+
+
+                <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
+                <h:form>
+                    <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa">
+                        <p:column headerText="Situacao">
+                            <h:outputText value="#{mesa.aberta}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="numero da mesa">
+                            <h:outputText value="#{mesa.nrMesa}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="">  
+                            <p:commandButton value="[APAGAR]" actionListener="#{mBMesa.excluir()}" update="lista_mesas">
+                                <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
+                            </p:commandButton>  
+                        </p:column> 
+                    </p:dataTable>
+
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                        <p:commandButton value="SIM" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+                        <p:commandButton value="NÃO" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+                    </p:confirmDialog>
+
+                </h:form>
             </div>
         </div>
 
