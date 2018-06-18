@@ -53,24 +53,31 @@ public class MBMesa extends MBGeneral {
     public void setMesas(List<Mesa> mesas) {
         this.mesas = mesas;
     }
-  
+
     public String getNmSituacao() {
-        if (this.mesa.isAberta()){
+        if (this.mesa.isAberta()) {
             this.nmSituacao = "aberto";
-        }else{
+        } else {
             this.nmSituacao = "fechada";
         }
         return nmSituacao;
     }
-    
+
     @Override
-    public boolean excluirRegistro(){
+    public boolean excluirRegistro() {
         this.mesa.excluir(this.mesa);
         return true;
     }
-    
-    public void excluir(Mesa mesa){
+
+    public void excluir(Mesa mesa) {
         this.setMesa(mesa);
         this.excluir();
     }
+
+    @Override
+    public boolean gravarRegistro() {
+        this.mesa.salvar(this.mesa);
+        return true;
+    }
+    
 }

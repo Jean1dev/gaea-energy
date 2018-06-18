@@ -6,6 +6,9 @@
 package repository;
 
 import app.JPA;
+import controller.MBGeneral;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -18,20 +21,24 @@ public class RepositoryGeneral {
     EntityManager Entity = JPA.getEM();
 
     public void salvar() {
-        EntityTransaction t = Entity.getTransaction();
-        t.begin();
-        Entity.merge(this);
-        t.commit();
+        try {
+            EntityTransaction t = Entity.getTransaction();
+            t.begin();
+            Entity.merge(this);
+            t.commit();
+        } catch (Exception ex) {
+            Logger.getLogger(MBGeneral.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void excluir() {
-        try{
+        try {
             EntityTransaction t = Entity.getTransaction();
             t.begin();
             Entity.remove(this);
             t.commit();
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
     }
 

@@ -35,4 +35,11 @@ public class MesaRepository extends RepositoryGeneral {
         this.Entity.remove(this.Entity.find(mesa.getClass(), mesa.getCodigo()));
         t.commit();
     }
+    
+    public void salvar(Mesa mesa){
+        EntityTransaction t = this.Entity.getTransaction();
+        t.begin();
+        this.Entity.merge(mesa);
+        t.commit();
+    }
 }

@@ -5,12 +5,54 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+    </h:head>
     <body>
         <div>PRODUTOt</div>
+        <h:form>
+            <hr/>
+            <h2>DADOS Produto</h2>
+            <hr/>
+            <div>
+                Quantidade
+                <br/>
+                <p:inputText value="#{mBProduto.produto.quantidade}" />
+            </div>
+
+            <div>
+                Nome
+                <br/>
+                <p:inputText value="#{mBProduto.produto.nome}" />
+            </div>
+
+            <div>
+                Marca
+                <br/>
+                <p:inputText value="#{mBProduto.produto.marca}" />
+            </div>
+
+            <div>
+                Tipo
+                <br/>
+                <p:inputText value="#{mBProduto.produto.tipo}" />
+            </div>
+
+            <div>
+                Preco
+                <br/>
+                <p:inputText value="#{mBProduto.produto.preco}" />
+            </div>
+
+            <div>
+                <p:commandButton value="Salvar" action="#{mBProduto.salvar()}" ajax="false" />
+                <p:commandButton value="Excluir" action="#{mBProduto.excluir()}" ajax="false" />
+                <p:commandButton value="Novo" action="#{mBProduto.novoRegistro()}" ajax="false" />
+            </div>
+        </h:form>
     </body>
 </html>
