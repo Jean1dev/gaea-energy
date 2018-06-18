@@ -7,6 +7,7 @@ package repository;
 
 import entity.Mesa;
 import java.util.List;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 /**
@@ -26,5 +27,12 @@ public class MesaRepository extends RepositoryGeneral {
         }
         
         return lista;
+    }
+    
+    public void excluir(Mesa mesa){
+        EntityTransaction t = this.Entity.getTransaction();
+        t.begin();
+        this.Entity.remove(this.Entity.find(mesa.getClass(), mesa.getCodigo()));
+        t.commit();
     }
 }

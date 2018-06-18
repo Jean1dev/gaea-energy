@@ -21,9 +21,10 @@ public class MBMesa extends MBGeneral {
 
     private Mesa mesa;
     private List<Mesa> mesas;
+    private String nmSituacao;
 
     public MBMesa() {
-        this.ObjectControll = "Mesa";
+        this.ObjectControll = "mesa";
     }
 
     public void atualizarLista() {
@@ -52,5 +53,24 @@ public class MBMesa extends MBGeneral {
     public void setMesas(List<Mesa> mesas) {
         this.mesas = mesas;
     }
-
+  
+    public String getNmSituacao() {
+        if (this.mesa.isAberta()){
+            this.nmSituacao = "aberto";
+        }else{
+            this.nmSituacao = "fechada";
+        }
+        return nmSituacao;
+    }
+    
+    @Override
+    public boolean excluirRegistro(){
+        this.mesa.excluir(this.mesa);
+        return true;
+    }
+    
+    public void excluir(Mesa mesa){
+        this.setMesa(mesa);
+        this.excluir();
+    }
 }

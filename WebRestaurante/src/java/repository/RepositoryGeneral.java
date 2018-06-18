@@ -25,10 +25,14 @@ public class RepositoryGeneral {
     }
 
     public void excluir() {
-        EntityTransaction t = Entity.getTransaction();
-        t.begin();
-        Entity.remove(this);
-        t.commit();
+        try{
+            EntityTransaction t = Entity.getTransaction();
+            t.begin();
+            Entity.remove(this);
+            t.commit();
+        }catch(Exception e){
+            
+        }
     }
 
     public void selecionarRegistro(Integer codigo) {

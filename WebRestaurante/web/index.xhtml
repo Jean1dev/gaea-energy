@@ -64,7 +64,7 @@
                             <h:outputText value="#{mesa.nrMesa}"></h:outputText>
                         </p:column>
                         <p:column headerText="">  
-                            <p:commandButton value="[APAGAR]" actionListener="#{mBMesa.excluir()}" update="lista_mesas">
+                            <p:commandButton value="[APAGAR]" actionListener="#{mBMesa.excluir(mesa)}" update="lista_mesas">
                                 <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
                             </p:commandButton>  
                         </p:column> 
