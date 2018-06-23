@@ -32,7 +32,6 @@
         <div class="jumbotron">
             <div class="container">
 
-
                 <!-- INICIO DO MENU -->
                 <div class="menu" float="right">
                     <h:form>
@@ -53,9 +52,14 @@
                 </div> 
                 <!-- FIM DO MENU -->
 
+                <h1>Mesas abertas!</h1>
+                
 
                 <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
                 <h:form>
+                    <p>
+                    <a class="btn btn-primary btn-lg" href="" role="button">Atualizar &raquo;</a>    
+                </p>
                     <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa">
                         <p:column headerText="Situacao">
                             <h:outputText value="#{mesa.aberta}"></h:outputText>
@@ -63,8 +67,12 @@
                         <p:column headerText="numero da mesa">
                             <h:outputText value="#{mesa.nrMesa}"></h:outputText>
                         </p:column>
-                        <p:column headerText="">  
-                            <p:commandButton value="[APAGAR]" actionListener="#{mBMesa.excluir(mesa)}" update="lista_mesas">
+                        <p:column headerText=""> 
+
+                            <p:column headerText="Editar">  
+                                <p:commandButton value="Editar" icon="ui-icon-arrowrefresh-1-w" class="btn btn-warning" ajax="false" action="cadastros/mesa?faces-redirect=true"  actionListener="#{mBMesa.teste()}"></p:commandButton>  
+                            </p:column> 
+                            <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" actionListener="#{mBMesa.excluir(mesa)}" >
                                 <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
                             </p:commandButton>  
                         </p:column> 

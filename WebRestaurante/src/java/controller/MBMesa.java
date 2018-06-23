@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.model.DataModel;
 
 /**
  *
@@ -22,6 +23,8 @@ public class MBMesa extends MBGeneral {
     private Mesa mesa;
     private List<Mesa> mesas;
     private String nmSituacao;
+    
+//    private DataModel<Mesa> data;
 
     public MBMesa() {
         this.ObjectControll = "mesa";
@@ -29,6 +32,7 @@ public class MBMesa extends MBGeneral {
 
     public void atualizarLista() {
         this.mesas = mesa.getAll();
+//        this.data = (DataModel<Mesa>) mesa.getAll();
     }
 
     @PostConstruct
@@ -79,5 +83,20 @@ public class MBMesa extends MBGeneral {
         this.mesa.salvar(this.mesa);
         return true;
     }
+    
+    public void teste(){
+        
+//     this.mesa = this.data.getRowData();
+    }
+
+//    public DataModel<Mesa> getData() {
+//        return data;
+//    }
+//
+//    public void setData(DataModel<Mesa> data) {
+//        this.data = data;
+//    }
+//    
+    
     
 }

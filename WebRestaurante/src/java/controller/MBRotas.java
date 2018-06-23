@@ -15,20 +15,24 @@ import javax.faces.bean.ViewScoped;
 @ManagedBean
 @ViewScoped
 public class MBRotas {
-    
-    public MBRotas(){
-        
+
+    public MBRotas() {
+
     }
-    
-    public String goCadMesa(){
+
+    public String goCadMesa() {
         return "mesa";
     }
-    
-    public String goCadUsu(){
+
+    public String goCadUsu() {
         return "usuario";
     }
-    
-    public String goCadProd(){
+
+    public String goCadProd() {
         return "produto";
+    }
+
+    public String goIndex() {
+        return "/index?faces-redirect=true";
     }
 }

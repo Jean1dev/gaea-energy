@@ -18,8 +18,11 @@ import java.util.List;
 public class Testes {
 
     public static void main(String[] args) {
-        insertProduto();
-        insertMesa();
+        //insertProduto();
+        
+        insertMesa();    
+        
+        
 
     }
 

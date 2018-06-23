@@ -9,9 +9,36 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Web Restaurante</title>
+        <meta charset="utf-8"></meta>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../public/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <link href="../public/css/style.css" rel="stylesheet"></link>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="../public/css/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet"></link>
     </h:head>
+
+    <!-- TOPO -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Restaurante Web</a>
+            </div>
+
+            <h:form id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-form navbar-right">
+                    <p:commandButton value="Voltar" class="btn btn-warning" action="#{mBRotas.goIndex()}" ajax="false" />
+                </div>
+
+            </h:form>
+        </div>
+    </nav>
     <body>
         <div>Cadastro MESA</div>
     </body>
