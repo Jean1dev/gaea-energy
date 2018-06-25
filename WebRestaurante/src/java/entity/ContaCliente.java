@@ -9,9 +9,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import repository.ContaClienteRepository;
 import repository.UsuarioRepository;
 
@@ -19,23 +23,27 @@ import repository.UsuarioRepository;
  *
  * @author Lurian V. Serafim
  */
+@Entity
+public class ContaCliente extends ContaClienteRepository implements Serializable {
 
-    
-    public class ContaCliente extends ContaClienteRepository implements Serializable {
-    
-     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer ContaCliente;
     private Date dataAbertura;
     private Date dataFechamento;
     private double valorTotal;
     private double valorRecebido;
     private Cliente Cliente;
-    private  List<?>itens = new ArrayList<>();
+    private Usuario usuario;
     
-    
-    public ContaCliente(){
-        
+        @OneToMany(fetch = FetchType.LAZY, 
+            mappedBy = "pedido", 
+            orphanRemoval = true, 
+            cascade = CascadeType.ALL)
+    private List<Produto> itens = new ArrayList<>();
+
+    public ContaCliente() {
+
     }
 
     public Integer getContaCliente() {
@@ -90,10 +98,16 @@ import repository.UsuarioRepository;
         return itens;
     }
 
-    public void setItens(List<?> itens) {
+    public void setItens(List<Produto> itens) {
         this.itens = itens;
     }
-    
-    
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
 }

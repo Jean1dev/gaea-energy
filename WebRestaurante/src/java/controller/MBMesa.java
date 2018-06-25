@@ -8,8 +8,10 @@ package controller;
 import entity.Mesa;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 
 /**
@@ -23,11 +25,15 @@ public class MBMesa extends MBGeneral {
     private Mesa mesa;
     private List<Mesa> mesas;
     private String nmSituacao;
-    
-//    private DataModel<Mesa> data;
 
+//    private DataModel<Mesa> data;
     public MBMesa() {
         this.ObjectControll = "mesa";
+    }
+
+    public void addMessage() {
+        String summary = this.mesa.isAberta() ? "Checked" : "Unchecked";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 
     public void atualizarLista() {
@@ -83,9 +89,9 @@ public class MBMesa extends MBGeneral {
         this.mesa.salvar(this.mesa);
         return true;
     }
-    
-    public void teste(){
-        
+
+    public void teste() {
+
 //     this.mesa = this.data.getRowData();
     }
 
@@ -97,6 +103,4 @@ public class MBMesa extends MBGeneral {
 //        this.data = data;
 //    }
 //    
-    
-    
 }

@@ -40,28 +40,49 @@ and open the template in the editor.
         </div>
     </nav>
     <body>
-        <div>Cadastro MESA</div>
+
+
+        <h:form>
+            <div class="col-md-8 order-md-1" style="margin-top: 50px">
+                <h4 class="mb-3">Informacoes da mesa</h4>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Numero da mesa</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="Numero da mesa" value="#{mBMesa.mesa.nrMesa}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+
+                <p:growl id="msgs" />
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+                    <h:outputText value="Situacao da mesa: " />
+                    <p:selectBooleanButton  value="#{mBMesa.mesa.aberta}" onLabel="Aberta" offLabel="Fechada" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:110px">
+                        <p:ajax update="msgs" listener="#{mBMesa.addMessage()}" />
+                    </p:selectBooleanButton>
+                </h:panelGrid>
+
+
+                <p:dialog style="margin-top: 500px" id="dialog" header="Values" modal="true" resizable="false" showEffect="fade" widgetVar="dlg">
+                    <h:panelGrid  columns="1" id="display">
+                        <h:outputText value="Value 1: #{mBMesa.mesa.aberta}" />
+                        <h:outputText value="Value 2: #{mBMesa.mesa.aberta}" />
+                    </h:panelGrid>
+                </p:dialog>
+
+
+
+                <div>
+                    <p:commandButton class="btn btn-primary btn-lg btn-block" value="Salvar" action="#{mBMesa.salvar()}" ajax="false" />
+                    <p:commandButton  class="btn btn-danger btn-lg btn-block" value="Excluir" action="#{mBMesa.excluir()}" ajax="false" />
+                    <p:commandButton  class="btn btn-warning btn-lg btn-block" value="Novo" action="#{mBMesa.novoRegistro()}" ajax="false" />
+                </div>
+            </div>
+        </h:form>
     </body>
-    <h:form>
-        <hr/>
-        <h2>DADOS da mesa</h2>
-        <hr/>
-        <div>
-            Numero da mesa
-            <br/>
-            <p:inputText value="#{mBMesa.mesa.nrMesa}" />
-        </div>
-
-        <div>
-            Situacao da mesa
-            <br/>
-            <p:inputText value="#{mBMesa.mesa.aberta}" />
-        </div>
-
-        <div>
-            <p:commandButton value="Salvar" action="#{mBMesa.salvar()}" ajax="false" />
-            <p:commandButton value="Excluir" action="#{mBMesa.excluir()}" ajax="false" />
-            <p:commandButton value="Novo" action="#{mBMesa.novoRegistro()}" ajax="false" />
-        </div>
-    </h:form>
 </html>

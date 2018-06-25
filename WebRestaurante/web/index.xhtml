@@ -47,6 +47,7 @@
                         <p:menuButton value="Cadastrar">
                             <p:menuitem value="Mesa" action="cadastros/mesa?faces-redirect=true" icon="ui-icon-disk"/>
                             <p:menuitem value="Produto" action="cadastros/produto?faces-redirect=true" icon="ui-icon-disk"/>
+                            <p:menuitem value="Usuario" action="cadastros/usuario?faces-redirect=true" icon="ui-icon-disk"/>
                         </p:menuButton>
                     </h:form>    
                 </div> 
@@ -75,6 +76,7 @@
                             <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" actionListener="#{mBMesa.excluir(mesa)}" >
                                 <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
                             </p:commandButton>  
+                            <p:commandButton  icon="ui-icon-search" type="button" />
                         </p:column> 
                     </p:dataTable>
 

@@ -8,7 +8,7 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-     <h:head>
+    <h:head>
         <title>Web Restaurante</title>
         <meta charset="utf-8"></meta>
 
@@ -40,6 +40,52 @@ and open the template in the editor.
         </div>
     </nav>
     <body>
-        <div>usuario</div>
+
+
+        <h:form>
+
+            <div class="col-md-8 order-md-1" style="margin-top: 50px">
+                <h4 class="mb-3">Detalhes do usuario</h4>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nome</label>
+                        <div class="input-group" >
+                            <p:inputText class="form-control"  placeholder="nome" value="#{mBUsuario.user.nome}" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Idade</label>
+                        <div class="input-group" >
+                            <p:inputText class="form-control"  placeholder="Idade" value="#{mBUsuario.user.idade}" />
+                        </div>
+                    </div>
+                       <div class="col-md-6 mb-3">
+                        <label for="lastName">CPF</label>
+                        <div class="input-group" >
+                            <p:inputText class="form-control"  placeholder="CPF" value="#{mBUsuario.user.cpf}" />
+                        </div>
+                    </div>
+                       <div class="col-md-6 mb-3">
+                        <label for="lastName">RG</label>
+                        <div class="input-group" >
+                            <p:inputText class="form-control"  placeholder="RG" value="#{mBUsuario.user.rg}" />
+                        </div>
+                    </div>
+                       <div class="col-md-6 mb-3">
+                        <label for="lastName">Data nascimento</label>
+                        <div class="input-group" >
+                            <p:inputText class="form-control"  placeholder="Nascimento" value="#{mBUsuario.user.dataNacimento}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p:commandButton class="btn btn-primary btn-lg btn-block" value="Salvar" action="#{mBMesa.salvar()}" ajax="false" />
+                <p:commandButton  class="btn btn-danger btn-lg btn-block" value="Excluir" action="#{mBMesa.excluir()}" ajax="false" />
+                <p:commandButton  class="btn btn-warning btn-lg btn-block" value="Novo" action="#{mBMesa.novoRegistro()}" ajax="false" />
+            </div>
+
+        </h:form>
     </body>
 </html>

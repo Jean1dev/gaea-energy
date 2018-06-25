@@ -39,48 +39,79 @@ and open the template in the editor.
             </h:form>
         </div>
     </nav>
-    
-    <body>
-        <div>PRODUTOt</div>
+
+    <body class="bg-light">
+        <div class="py-5 text-center">
+            <h2>Produto</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+
+
+
         <h:form>
-            <hr/>
-            <h2>DADOS Produto</h2>
-            <hr/>
-            <div>
-                Quantidade
-                <br/>
-                <p:inputText value="#{mBProduto.produto.quantidade}" />
-            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Informacoes do produto</h4>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Quantidade</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="quantidade" value="#{mBProduto.produto.quantidade}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div>
-                Nome
-                <br/>
-                <p:inputText value="#{mBProduto.produto.nome}" />
-            </div>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Nome</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="Nome" value="#{mBProduto.produto.nome}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Marca</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="Marca" value="#{mBProduto.produto.marca}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Tipo</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="Tipo" value="#{mBProduto.produto.tipo}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div>
-                Marca
-                <br/>
-                <p:inputText value="#{mBProduto.produto.marca}" />
-            </div>
+                <div class="row">
+                    <div class="col-md-8 order-md-1">
+                        <div class="mb-3">
+                            <label for="username">Preco</label>
+                            <div class="input-group" >
+                                <p:inputText class="form-control"  placeholder="Preco" value="#{mBProduto.produto.preco}" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div>
-                Tipo
-                <br/>
-                <p:inputText value="#{mBProduto.produto.tipo}" />
-            </div>
 
-            <div>
-                Preco
-                <br/>
-                <p:inputText value="#{mBProduto.produto.preco}" />
-            </div>
-
-            <div>
-                <p:commandButton value="Salvar" action="#{mBProduto.salvar()}" ajax="false" />
-                <p:commandButton value="Excluir" action="#{mBProduto.excluir()}" ajax="false" />
-                <p:commandButton value="Novo" action="#{mBProduto.novoRegistro()}" ajax="false" />
+                <div>
+                    <p:commandButton class="btn btn-primary btn-lg btn-block" value="Salvar" action="#{mBProduto.salvar()}" ajax="false" />
+                    <p:commandButton class="btn btn-danger btn-lg btn-block" value="Excluir" action="#{mBProduto.excluir()}" ajax="false" />
+                    <p:commandButton class="btn btn-warning btn-lg btn-block" value="Novo" action="#{mBProduto.novoRegistro()}" ajax="false" />
+                </div>
             </div>
         </h:form>
+
     </body>
 </html>

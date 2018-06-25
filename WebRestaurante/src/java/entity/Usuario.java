@@ -7,16 +7,18 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import repository.ProdutoRepository;
+import javax.persistence.Temporal;
 import repository.UsuarioRepository;
 
 /**
  *
  * @author Lurian V. Serafim
  */
+@Entity
 public class Usuario extends UsuarioRepository implements Serializable {
     
      @Id
@@ -25,6 +27,7 @@ public class Usuario extends UsuarioRepository implements Serializable {
     private String nome;
     private int idade;
     private String Sexo;
+     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataNacimento;
     private String cpf;
     private String rg;
