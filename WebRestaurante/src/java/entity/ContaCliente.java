@@ -16,8 +16,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import repository.ContaClienteRepository;
-import repository.UsuarioRepository;
 
 /**
  *
@@ -29,18 +30,29 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer ContaCliente;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataAbertura;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataFechamento;
     private double valorTotal;
     private double valorRecebido;
     private Cliente Cliente;
+    @OneToOne
     private Usuario usuario;
+    @OneToOne
+    private Mesa mesa;
     
         @OneToMany(fetch = FetchType.LAZY, 
-            mappedBy = "pedido", 
+            mappedBy = "contacli", 
             orphanRemoval = true, 
             cascade = CascadeType.ALL)
-    private List<Produto> itens = new ArrayList<>();
+    private List<ItemContaCli> itens = new ArrayList<>();
+        
+        
+    public void add(ItemContaCli i){
+        i.setContacli(this);
+        this.getItens().add(i);
+    }    
 
     public ContaCliente() {
 
@@ -94,11 +106,11 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
         this.Cliente = Cliente;
     }
 
-    public List<?> getItens() {
+    public List<ItemContaCli> getItens() {
         return itens;
     }
 
-    public void setItens(List<Produto> itens) {
+    public void setItens(List<ItemContaCli> itens) {
         this.itens = itens;
     }
 
@@ -110,4 +122,13 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
         this.usuario = usuario;
     }
 
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    
 }

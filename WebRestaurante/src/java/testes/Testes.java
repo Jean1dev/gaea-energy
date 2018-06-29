@@ -5,10 +5,13 @@
  */
 package testes;
 
+import entity.ContaCliente;
+import entity.ItemContaCli;
 import entity.Mesa;
 import entity.Produto;
 import entity.Usuario;
 import java.security.Security;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,10 +22,32 @@ public class Testes {
 
     public static void main(String[] args) {
         //insertProduto();
-        insertUsuario();
+        //insertUsuario();
         //insertMesa();    
+        insertContaCli();
+
+    }
+
+    public static void insertContaCli() {
+        ContaCliente contacli = new ContaCliente();
+        contacli.setDataAbertura(new Date());
+
+        Mesa mesa = new Mesa();
+        mesa.setNrMesa(24);
+
+        contacli.setMesa(mesa);
+
+        ItemContaCli item = new ItemContaCli();
+        ItemContaCli item1 = new ItemContaCli();
+        Produto prod = new Produto();
+
+        item.setProduto(prod.getProduto(901));
+
+        item1.setProduto(prod.getProduto(601));
+        contacli.add(item);
+        contacli.add(item1);
         
-        
+        contacli.salvar();
 
     }
 
@@ -42,8 +67,8 @@ public class Testes {
         p.setNome("teste");
         p.salvar();
     }
-    
-    public static void insertUsuario(){
+
+    public static void insertUsuario() {
         Usuario u = new Usuario();
         u.setEndereço("tal");
         u.setNome("teste");

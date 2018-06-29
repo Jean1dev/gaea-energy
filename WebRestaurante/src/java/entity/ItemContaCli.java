@@ -8,9 +8,13 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.TableGenerator;
 import repository.ItemContaCliRepository;
 
 /**
@@ -18,8 +22,10 @@ import repository.ItemContaCliRepository;
  * @author jeanfernandes
  */
 @Entity
+@TableGenerator(name = "tab", initialValue = 0, allocationSize = 50)
 public class ItemContaCli extends ItemContaCliRepository implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "tab")
     @Id
     private Integer codigo;
     private Integer quantidade;
