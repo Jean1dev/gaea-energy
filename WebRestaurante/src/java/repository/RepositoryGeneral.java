@@ -7,10 +7,12 @@ package repository;
 
 import app.JPA;
 import controller.MBGeneral;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 /**
  *
@@ -44,5 +46,22 @@ public class RepositoryGeneral {
 
     public void selecionarRegistro(Integer codigo) {
         Entity.find(this.getClass(), codigo);
+    }
+    
+    public List<?> getByName(String tabela, String nome){
+        List<?> list = null;
+        String sql, campoChave;
+        
+        //sql = "select object(m) from Produto as m where m.nome = 'vai'";
+        campoChave = "id" + tabela;
+        sql = "select object(m) from " + tabela + " as m where m.nome = " + "'" +nome+ "'";
+        
+        try{
+            Query q = this.Entity.createQuery(sql);
+            list = q.getResultList();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return list;
     }
 }

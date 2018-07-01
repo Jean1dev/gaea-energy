@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Web Restaurante</title>
+        <meta charset="utf-8"></meta>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../public/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <link href="../public/css/style.css" rel="stylesheet"></link>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="../public/css/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet"></link>
+    </h:head>
+
+    <!-- TOPO -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Restaurante Web</a>
+            </div>
+
+            <h:form id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-form navbar-right">
+                    <p:commandButton value="Voltar" class="btn btn-warning" action="#{mBRotas.goIndex()}" ajax="false" />
+                </div>
+
+            </h:form>
+        </div>
+    </nav>
+    <body class="row">
+        <div class="container">
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="./Checkout example for Bootstrap_files/bootstrap-solid.svg" alt="" width="72" height="72"></img>
+                <h2>Conta de cliente</h2>
+                <p class="lead">breve descricao</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Detalhes do cliente</span>
+                        <span class="badge badge-secondary badge-pill">3</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Nome</h6>
+                                <small class="text-muted">#{mBContaCli.contacli.cliente.nome}</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">CPF</h6>
+                                <small class="text-muted">#{mBContaCli.contacli.cliente.cpf}</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">Endereco</h6>
+                                <small class="text-muted">#{mBContaCli.contacli.cliente.endereço}</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total Gasto(USD)</span>
+                            <strong>#{mBContaCli.contacli.valorTotal}</strong>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <h:form class="card p-2">
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3"></h4>
+                        <div class="row">
+                            <h:outputLabel for="multiple" value="Selecione:" />
+                            <p:selectCheckboxMenu id="multiple" value="#{mBContaCli.cli}" label="Clientes____" 
+                                                  filter="true" filterMatchMode="startsWith" style="height: 30px" >
+                                <f:selectItems value="#{mBContaCli.listaCliente}" />
+                            </p:selectCheckboxMenu>                    
+                            <p:commandButton  id="iconOnly" icon="ui-icon-disk" title="Icon Only" ajax="false" action="#{mBRotas.goCadCli()}" />
+                        </div>
+                    </div>
+                    <br></br>
+                    <div class="mb-3">
+                        <h:outputLabel for="multiple" value="Selecione:" />
+                        <p:selectCheckboxMenu  value="#{mBContaCli.usu}" label="Vendedor___" 
+                                               filter="true" filterMatchMode="startsWith" style="height: 30px" >
+                            <f:selectItems value="#{mBContaCli.listaUsuario}" />
+                        </p:selectCheckboxMenu>                    
+                        <p:commandButton  icon="ui-icon-disk" title="Icon just" ajax="false" action="#{mBRotas.goCadUsu()}" />
+
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel  for="multiple" value="Selecione:" />
+                        <p:selectCheckboxMenu  value="#{mBContaCli.prod}" label="Produto____." 
+                                               filter="true" filterMatchMode="startsWith" style="height: 30px" >
+                            <f:selectItems value="#{mBContaCli.listaProduto}" />
+                        </p:selectCheckboxMenu> 
+
+
+                        <p:dialog header="Selected Items" modal="true" showEffect="fade" hideEffect="fade" widgetVar="itemDialog" width="250">
+                            <p:dataList value="#{mBContaCli.prod}" var="prod" emptyMessage="nenhum registro selecionado">
+                                <f:facet name="header">
+                                    Multiple
+                                </f:facet>
+                                #{prod}
+                            </p:dataList>
+                        </p:dialog>
+
+                        <div class="col-md-8 order-md-1">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName">Quantidade</label>
+                                    <div class="input-group" >
+                                        <p:inputText class="form-control"  placeholder="Quantidade" value="#{mBContaCli.itemSelecionado.quantidade}" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="firstName">Valor</label>
+                                    <div class="input-group" >
+                                        <p:inputText class="form-control"  placeholder="Valor" value="#{mBContaCli.itemSelecionado.valor}" />
+                                    </div>
+                                </div>
+
+                                <p:commandButton value="Inserir" action="#{mBContaCli.inserirItem()}" ajax="false" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-1">
+                        <div class="row">
+                            <p:dataTable style="margin-left: 0px" id="lista_itens" value="#{mBContaCli.contacli.itens}" var="item"
+                                         paginator="true" rows="10"  
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                         rowsPerPageTemplate="2,5,10,15,30">
+                                <p:column headerText="Produto">
+                                    <h:outputText value="#{item.produto.nome}"></h:outputText>
+                                </p:column>
+                                <p:column headerText="Quantidade">
+                                    <h:outputText value="#{item.quantidade}"></h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Preco">
+                                    <h:outputText value="#{item.valor}"></h:outputText>
+                                </p:column>
+                                <p:column headerText=""> 
+                                    <p:commandButton value="Remover" icon="ui-icon-close" class="btn btn-danger" ajax="false" action="#{mBContaCli.excluirItem(item)}" >
+                                    </p:commandButton>  
+                                </p:column> 
+                            </p:dataTable>
+                            #{mBContaCli.contacli.valorTotal}
+                            <p:commandButton class="btn btn-primary btn-lg btn-block" value="Salvar" action="#{mBContaCli.salvar()}" ajax="false" />
+             
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </body>
+</html>

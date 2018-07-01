@@ -7,25 +7,29 @@ package entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 import repository.ClienteRepository;
-import repository.UsuarioRepository;
 
 /**
  *
  * @author Lurian V. Serafim
  */
 
+@Entity
 public class Cliente extends ClienteRepository implements Serializable {
     
-     @Id
+    @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer idUsuario;
     private String nome;
     private int idade;
     private String Sexo;
+     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataNacimento;
     private String cpf;
     private String rg;
@@ -98,6 +102,32 @@ public class Cliente extends ClienteRepository implements Serializable {
     public void setEndereço(String endereço) {
         this.endereço = endereço;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 47 * hash + Objects.hashCode(this.idUsuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.idUsuario, other.idUsuario)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
 }

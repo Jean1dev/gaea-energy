@@ -36,6 +36,7 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
     private Date dataFechamento;
     private double valorTotal;
     private double valorRecebido;
+    @OneToOne
     private Cliente Cliente;
     @OneToOne
     private Usuario usuario;
@@ -46,7 +47,7 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
             mappedBy = "contacli", 
             orphanRemoval = true, 
             cascade = CascadeType.ALL)
-    private List<ItemContaCli> itens = new ArrayList<>();
+    private List<ItemContaCli> itens = new ArrayList<>();        
         
         
     public void add(ItemContaCli i){
@@ -54,6 +55,18 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
         this.getItens().add(i);
     }    
 
+    public void remove(ItemContaCli i){
+        this.getItens().remove(i);
+    }
+    
+    public Double getSumTotal(){
+        Double ret = 0.00;
+        for(ItemContaCli i: this.getItens()){
+            ret += i.getTotal();
+        }
+        return ret;
+    }
+    
     public ContaCliente() {
 
     }

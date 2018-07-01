@@ -9,9 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -65,10 +67,10 @@ public class MBGeneral extends MBAbstract {
 
     @Override
     public boolean gravarRegistro() {
-        if(!this.validarGravacao()){
+        if (!this.validarGravacao()) {
             return false;
         }
-        
+
         this.antesGravar();
         try {
             engine.eval(this.ObjectControll + ".salvar();");
@@ -77,7 +79,7 @@ public class MBGeneral extends MBAbstract {
             return false;
         }
         this.aposGravar();
-        
+
         return true;
     }
 
@@ -95,6 +97,12 @@ public class MBGeneral extends MBAbstract {
     @Override
     public void excluir() {
         this.excluirRegistro();
+    }
+
+    public void finalizar() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+        session.invalidate();
     }
 
 }

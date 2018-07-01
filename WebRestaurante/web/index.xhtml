@@ -40,7 +40,7 @@
                         <p:menuButton value="Options">
                             <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk"/>
                             <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
-                            <p:menuitem value="Delete" actionListener="#{menuView.delete}" ajax="false" icon="ui-icon-close"/>
+                            <p:menuitem value="Delete" actionListener="#{mBMesa.finalizar()}" ajax="false" icon="ui-icon-close"/>
                             <p:separator />
                             <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
                         </p:menuButton>
@@ -54,14 +54,17 @@
                 <!-- FIM DO MENU -->
 
                 <h1>Mesas abertas!</h1>
-                
+
 
                 <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
                 <h:form>
                     <p>
-                    <a class="btn btn-primary btn-lg" href="" role="button">Atualizar &raquo;</a>    
-                </p>
-                    <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa">
+                        <a class="btn btn-primary btn-lg" href="" role="button">Atualizar &raquo;</a>    
+                    </p>
+                    <p:dataTable id="lista_mesas" value="#{mBMesa.mesas}" var="mesa"
+                                 paginator="true" rows="10"  
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                 rowsPerPageTemplate="2,5,10,15,30">
                         <p:column headerText="Situacao">
                             <h:outputText value="#{mesa.aberta}"></h:outputText>
                         </p:column>
@@ -71,12 +74,12 @@
                         <p:column headerText=""> 
 
                             <p:column headerText="Editar">  
-                                <p:commandButton value="Editar" icon="ui-icon-arrowrefresh-1-w" class="btn btn-warning" ajax="false" action="cadastros/mesa?faces-redirect=true"  actionListener="#{mBMesa.teste()}"></p:commandButton>  
+                                <p:commandButton value="Editar" icon="ui-icon-arrowrefresh-1-w" class="btn btn-warning" ajax="false" action="cadastros/mesa?faces-redirect=true"  actionListener="#{mBMesa.setMesa(mesa)}"></p:commandButton>  
                             </p:column> 
                             <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" actionListener="#{mBMesa.excluir(mesa)}" >
                                 <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
                             </p:commandButton>  
-                            <p:commandButton  icon="ui-icon-search" type="button" />
+                            <p:commandButton  icon="ui-icon-search" ajax="false" action="cadastros/contacli?faces-redirect=true" ></p:commandButton>
                         </p:column> 
                     </p:dataTable>
 

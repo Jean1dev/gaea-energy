@@ -6,6 +6,7 @@
 package controller;
 
 import entity.Usuario;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -27,6 +28,22 @@ public class MBUsuario extends MBGeneral {
         this.user = user;
     }
 
+    @Override
+    public boolean gravarRegistro() {
+       this.user.salvar();
+       return true;
+    }
+    
+    
+
+    @PostConstruct
+    @Override
+    public void novoRegistro() {
+        //super.novoRegistro(); //To change body of generated methods, choose Tools | Templates.
+        this.user = new Usuario();
+    }
+
+    
     public MBUsuario() {
     }
     

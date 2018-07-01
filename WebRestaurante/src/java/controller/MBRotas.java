@@ -32,7 +32,15 @@ public class MBRotas {
         return "produto";
     }
 
+    public String goCadCli(){
+        return "cliente";
+    }
+    
     public String goIndex() {
         return "/index?faces-redirect=true";
+    }
+    
+    public String goContacli(){
+        return "/cadastros/contacli?faces-redirect=true";
     }
 }
