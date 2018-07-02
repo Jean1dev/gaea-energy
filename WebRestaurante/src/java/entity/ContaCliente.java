@@ -67,6 +67,12 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
         return ret;
     }
     
+    public void preencherCampos(){
+        this.valorTotal = this.getSumTotal();
+        this.valorRecebido = this.valorTotal;
+        this.dataAbertura = new Date();
+    }
+    
     public ContaCliente() {
 
     }
@@ -96,7 +102,7 @@ public class ContaCliente extends ContaClienteRepository implements Serializable
     }
 
     public double getValorTotal() {
-        return valorTotal;
+        return this.getSumTotal();
     }
 
     public void setValorTotal(double valorTotal) {

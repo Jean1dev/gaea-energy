@@ -6,6 +6,7 @@
 package controller;
 
 import entity.Mesa;
+import ferramentas.MessagesView;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -87,6 +88,7 @@ public class MBMesa extends MBGeneral {
     @Override
     public boolean gravarRegistro() {
         this.mesa.salvar(this.mesa);
+        MessagesView.info();
         return true;
     }
 

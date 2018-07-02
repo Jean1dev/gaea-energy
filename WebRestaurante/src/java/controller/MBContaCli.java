@@ -92,6 +92,7 @@ public class MBContaCli extends MBGeneral {
     @Override
     public boolean gravarRegistro() {
        // return super.gravarRegistro(); //To change body of generated methods, choose Tools | Templates.
+       this.contacli.preencherCampos();
        this.contacli.salvar();
        return true;
     }
