@@ -39,6 +39,18 @@ public class MBProduto extends MBGeneral{
         return true;
     }
 
+    @Override
+    public boolean excluirRegistro() {
+       // return super.excluirRegistro(); //To change body of generated methods, choose Tools | Templates.
+       this.produto.excluir();
+       return true;
+    }
+    
+    public void excluir(Produto p){
+        this.setProduto(p);
+        boolean excluirRegistro = this.excluirRegistro();
+    }
+
     public MBProduto() {
     }
     

@@ -40,7 +40,7 @@ public class RepositoryGeneral {
             Entity.remove(this);
             t.commit();
         } catch (Exception e) {
-
+            System.out.println(e);
         }
     }
 

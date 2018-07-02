@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Web Restaurante</title>
+        <meta charset="utf-8"></meta>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../public/css/bootstrap.min.css" rel="stylesheet"></link>
+
+        <link href="../public/css/style.css" rel="stylesheet"></link>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link href="../public/css/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet"></link>
+    </h:head>
+    <h:body>
+        <!-- TOPO -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="color: white; font-size: 25px">Restaurante Web</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEUDO -->
+        <div class="jumbotron">
+            <div class="container">
+
+                <!-- INICIO DO MENU -->
+                <div class="menu" float="right">
+                    <h:form>
+                        <p:growl id="messages" showDetail="true"/>
+
+                        <p:menuButton value="Options">
+                            <p:menuitem value="Save" actionListener="#{menuView.save}" update="messages" icon="ui-icon-disk"/>
+                            <p:menuitem value="Update" actionListener="#{menuView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+                            <p:menuitem value="Delete" actionListener="#{menuView.delete}" ajax="false" icon="ui-icon-close"/>
+                            <p:separator />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+                        </p:menuButton>
+                    </h:form>    
+
+                </div> 
+                <!-- FIM DO MENU -->
+
+                <h1 style="font-family: cursive; text-align: center; color: black" >Consulta Produtos !</h1>
+
+
+
+                <h:form>
+
+                    <p:dataTable id="lista_consulta_prod" value="#{mBConsultas.listaProduto}" var="prod"
+                                 paginator="true" rows="10"  
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                 rowsPerPageTemplate="2,5,10,15,30">>
+                        <p:column headerText="IDProduto">
+                            <h:outputText value="#{prod.idProduto}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{prod.nome}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Preço">
+                            <h:outputText value="#{prod.preco}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Tipo">
+                            <h:outputText value="#{prod.tipo}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Marca">
+                            <h:outputText value="#{prod.marca}"></h:outputText>
+                        </p:column>
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{prod.quantidade}"></h:outputText>
+                        </p:column>
+                        <p:column headerText=""> 
+
+                            <p:column headerText="Editar">  
+                                <p:commandButton value="Editar" icon="ui-icon-arrowrefresh-1-w" class="btn btn-warning" ajax="false" action="/cadastros/produto?faces-redirect=true"  actionListener="#{mBProduto.setProduto(prod)}"></p:commandButton>  
+                            </p:column> 
+                            <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" ajax="false" actionListener="#{mBProduto.excluir(prod)}" >
+                                <p:confirm header="Exclusão de mesa" message="Desejar excluir este Produto?" icon="ui-icon-alert"></p:confirm>
+                            </p:commandButton>  
+                        </p:column> 
+                    </p:dataTable>
+
+
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                        <p:commandButton value="SIM" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"></p:commandButton>
+                        <p:commandButton value="NÃO" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"></p:commandButton>
+                    </p:confirmDialog>
+
+
+                    <!-- PAGINADOR -->
+
+
+
+
+
+
+                    <p>
+                        <hr>
+                            <a class="btn btn-primary btn-lg" href="" role="button">Listar &raquo;</a>  
+                        </hr>
+                    </p>
+
+                </h:form>
+            </div>
+        </div>
+
+        <!-- RODAPE -->
+        <div class="container">
+            <footer>
+                <p>&copy;2018</p>
+            </footer>
+        </div>
+    </h:body>
+</html>
