@@ -31,6 +31,14 @@ public class MBPedido {
         
     }
     
+    public void remover(Pedido p) {
+        
+    }
+    
+    public void atualizar() {
+        
+    }
+    
     private void preencherObjetos() {
         
     }

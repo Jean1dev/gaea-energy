@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
-
-import java.io.Serializable;
-
+package utils;
 /**
  *
  * @author jeanfernandes
  */
-public class Cliente implements Serializable{
-     private static final long serialVersionUID = -4943376684332875623L;
-     
-    
+
+public class JacksonUtils {
+   
 }

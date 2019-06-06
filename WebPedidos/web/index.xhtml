@@ -61,7 +61,6 @@
                 <h1>Ultimos Pedidos</h1>
 
 
-                <!--<h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />-->
                 <h:form>
                     <p>
                         <a class="btn btn-primary btn-lg" href="" role="button">Atualizar &raquo;</a>    
@@ -81,8 +80,8 @@
                             <p:column headerText="Editar">  
                                 <p:commandButton value="Editar" icon="ui-icon-arrowrefresh-1-w" class="btn btn-warning" ajax="false" action="cadastros/mesa?faces-redirect=true"  actionListener="#{mBMesa.setMesa(mesa)}"></p:commandButton>  
                             </p:column> 
-                            <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" actionListener="#{mBMesa.excluir(mesa)}" >
-                                <p:confirm header="Exclusão de mesa" message="Desejar excluir esta mesa?" icon="ui-icon-alert"></p:confirm>
+                            <p:commandButton value="Apagar" icon="ui-icon-close" class="btn btn-danger" actionListener="#{mBPedido.remover(pedido)}" >
+                                <p:confirm header="Exclusão de pedido" message="Desejar excluir esta pedido?" icon="ui-icon-alert"></p:confirm>
                             </p:commandButton>  
                             <p:commandButton  icon="ui-icon-search" ajax="false" action="cadastros/contacli?faces-redirect=true" ></p:commandButton>
                         </p:column> 
