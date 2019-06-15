@@ -14,7 +14,6 @@ import repository.ProdutoRepository;
 
 /**
  *
- * @author Lurian V. Serafim
  */
 @Entity
 public class Produto extends ProdutoRepository implements Serializable {

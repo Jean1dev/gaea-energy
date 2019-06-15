@@ -5,12 +5,8 @@
  */
 package controller;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import service.ProdutoService;
@@ -24,17 +20,7 @@ import service.ProdutoService;
 @ViewScoped
 public class MBPrincipal {
     
-    private String teste = "beanok";
-    private ProdutoService service;
-
-    public String getTeste() {
-        return teste;
-    }
-
-    public void setTeste(String teste) {
-        this.teste = teste;
-    }
-    
+    private String APPLICATION_TITLE = "Pedidos";
     /**
      * Creates a new instance of MBPrincipal
      */
@@ -43,7 +29,15 @@ public class MBPrincipal {
     
     @PostConstruct
     public void aposConstruir() {
-        service = new ProdutoService();
-        service.getAll();
+        
     }
+
+    public String getAPPLICATION_TITLE() {
+        return APPLICATION_TITLE;
+    }
+
+    public void setAPPLICATION_TITLE(String APPLICATION_TITLE) {
+        this.APPLICATION_TITLE = APPLICATION_TITLE;
+    }
+    
 }

@@ -17,7 +17,6 @@ import repository.ClienteRepository;
 
 /**
  *
- * @author Lurian V. Serafim
  */
 
 @Entity

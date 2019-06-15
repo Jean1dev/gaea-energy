@@ -20,24 +20,31 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
     }
-    
-    public static class Builder {
-        
-        private String nome;
-        private Double preco;
-        
-        public Builder nome(String nome){
-            this.nome = nome;
-            return this;
-        }
-        
-        public Builder preco(Double preco) {
-            this.preco = preco;
-            return this;
-        }
-        
-        public Produto build() {
-            return new Produto(null, nome, preco);
-        }
+
+    public Integer getId() {
+        return id;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Produto() {
+    }    
 }

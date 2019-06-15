@@ -22,7 +22,6 @@ import repository.ContaClienteRepository;
 
 /**
  *
- * @author Lurian V. Serafim
  */
 @Entity
 public class ContaCliente extends ContaClienteRepository implements Serializable {

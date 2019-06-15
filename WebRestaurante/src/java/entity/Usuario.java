@@ -16,7 +16,6 @@ import repository.UsuarioRepository;
 
 /**
  *
- * @author Lurian V. Serafim
  */
 @Entity
 public class Usuario extends UsuarioRepository implements Serializable {

@@ -9,6 +9,8 @@
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.deploy-on-startup" value="true" />
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
       <property name="eclipselink.logging.level" value="FINE"/>
     </properties>
   </persistence-unit>

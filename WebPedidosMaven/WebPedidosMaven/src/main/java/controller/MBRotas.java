@@ -3,14 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servelet;
+package controller;
 
-//import javax.servlet.http.HttpServlet;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author jeanfernandes
  */
-public class TestServlet {
-    
+@ManagedBean
+@ViewScoped
+public class MBRotas {
+
+    public String goIndex() {
+        return "/index?faces-redirect=true";
+    }
 }
